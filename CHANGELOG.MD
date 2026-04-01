@@ -1,4 +1,8 @@
-01/04/
+01/04/26
+
+v1.1.1
+    mobile view optimised 
+
 v1.1.0 - information & forms overhaul
     changed text across the app
     number field in both form - added country code
