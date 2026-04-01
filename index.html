@@ -280,8 +280,8 @@
 
     .steps-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
       margin-top: 56px;
     }
 
@@ -565,6 +565,34 @@
     .tutor-form-card select option {
       background: var(--navy);
       color: var(--white);
+    }
+
+    .tutor-form-card .phone-input-wrap {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .tutor-form-card .phone-input-wrap .country-code-select {
+      background: rgba(255, 255, 255, 0.15);
+      border-right-color: rgba(255, 255, 255, 0.2) !important;
+      color: var(--white);
+    }
+
+    .tutor-form-card .phone-input-wrap .phone-number-input {
+      background: transparent !important;
+      color: var(--white) !important;
+      border: none !important;
+      box-shadow: none !important;
+      pointer-events: auto !important;
+    }
+
+    .tutor-form-card .phone-input-wrap .phone-number-input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .tutor-form-card .phone-input-wrap:focus-within {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(200, 169, 110, 0.2);
     }
 
     .btn-submit-gold {
@@ -851,6 +879,266 @@
       color: var(--gold);
     }
 
+
+    /* ── MULTI-SELECT CHECKBOX DROPDOWN ── */
+    .multi-select {
+      position: relative;
+      width: 100%;
+    }
+
+    .multi-select-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      border: 1.5px solid #ddd;
+      border-radius: var(--radius);
+      background: var(--white);
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: var(--text);
+      transition: border-color 0.2s;
+      user-select: none;
+    }
+
+    .multi-select.open .multi-select-trigger {
+      border-color: var(--gold);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .multi-select-placeholder {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    .multi-select-arrow {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      transition: transform 0.2s;
+    }
+
+    .multi-select.open .multi-select-arrow {
+      transform: rotate(180deg);
+    }
+
+    .multi-select-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border: 1.5px solid var(--gold);
+      border-top: none;
+      border-bottom-left-radius: var(--radius);
+      border-bottom-right-radius: var(--radius);
+      z-index: 50;
+      max-height: 220px;
+      overflow-y: auto;
+      box-shadow: 0 8px 24px rgba(13,27,42,0.12);
+    }
+
+    .multi-select.open .multi-select-dropdown {
+      display: block;
+    }
+
+    .multi-select-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      font-size: 0.92rem;
+      color: var(--text);
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .multi-select-option:hover {
+      background: var(--cream-dark);
+    }
+
+    .multi-select-option input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      accent-color: var(--gold);
+      cursor: pointer;
+      border: none !important;
+      border-radius: 3px !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: none !important;
+      box-shadow: none !important;
+    }
+
+    /* Dark variant for tutor form */
+    .multi-select-dark .multi-select-trigger {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.2);
+      color: var(--white);
+    }
+
+    .multi-select-dark.open .multi-select-trigger {
+      border-color: var(--gold);
+    }
+
+    .multi-select-dark .multi-select-placeholder {
+      color: rgba(255,255,255,0.4);
+    }
+
+    .multi-select-dark .multi-select-arrow {
+      color: rgba(255,255,255,0.6);
+    }
+
+    .multi-select-dark .multi-select-dropdown {
+      background: var(--navy-mid);
+      border-color: var(--gold);
+    }
+
+    .multi-select-dark .multi-select-option {
+      color: rgba(255,255,255,0.85);
+    }
+
+    .multi-select-dark .multi-select-option:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+
+
+    /* ── SIGNATURE PAD ── */
+    .signature-wrap {
+      position: relative;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.95);
+      overflow: hidden;
+    }
+
+    .signature-canvas {
+      display: block;
+      width: 100%;
+      height: 160px;
+      cursor: crosshair;
+      touch-action: none;
+    }
+
+    .signature-clear-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(200,169,110,0.9);
+      color: var(--navy);
+      border: none;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .signature-clear-btn:hover {
+      background: var(--gold);
+    }
+
+    /* ── TUTOR FORM SECTIONS ── */
+    .tutor-form-section {
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .tutor-form-section-title {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 1.4rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid rgba(200,169,110,0.3);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── FILE UPLOAD ── */
+    .file-upload-input {
+      padding: 10px 14px !important;
+      cursor: pointer;
+      color: rgba(255,255,255,0.7) !important;
+    }
+
+    .file-upload-input::-webkit-file-upload-button {
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.82rem;
+      cursor: pointer;
+      margin-right: 12px;
+    }
+
+    .file-upload-input::file-selector-button {
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.82rem;
+      cursor: pointer;
+      margin-right: 12px;
+    }
+
+    /* ── PHONE INPUT COMBO ── */
+    .phone-input-wrap {
+      display: flex;
+      gap: 0;
+      border: 1.5px solid #ddd;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--white);
+      transition: border-color 0.2s;
+    }
+
+    .phone-input-wrap:focus-within {
+      border-color: var(--gold);
+    }
+
+    .country-code-select {
+      border: none !important;
+      border-right: 1.5px solid #ddd !important;
+      border-radius: 0 !important;
+      background: #f5f3ee;
+      padding: 0 10px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text);
+      width: 105px;
+      min-width: 105px;
+      max-width: 105px;
+      flex-shrink: 0;
+      cursor: pointer;
+      outline: none;
+      appearance: auto;
+    }
+
+    .phone-number-input {
+      border: none !important;
+      border-radius: 0 !important;
+      flex: 1;
+      min-width: 0;
+      width: 0;
+      padding: 12px 14px;
+      font-size: 0.95rem;
+      outline: none;
+      background: transparent;
+      -webkit-user-select: text;
+      user-select: text;
+    }
+
     /* ── SUCCESS BANNER ── */
     .success-banner {
       display: none;
@@ -886,7 +1174,10 @@
         grid-template-columns: 1fr;
       }
 
-      .steps-grid,
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .testimonials-grid {
         grid-template-columns: 1fr;
       }
@@ -909,6 +1200,10 @@
     }
 
     @media (max-width: 560px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+
       .subjects-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -955,20 +1250,20 @@
         <h3>Why Parents Choose Us</h3>
         <div class="hero-stats">
           <div class="stat">
+            <div class="stat-num">Handpicked</div>
+            <div class="stat-label">Teachers</div>
+          </div>
+          <div class="stat">
             <div class="stat-num">100%</div>
-            <div class="stat-label">Certified Teachers</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">20+</div>
-            <div class="stat-label">Years Combined Experience</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">15+</div>
-            <div class="stat-label">Subjects Offered</div>
+            <div class="stat-label">Qualified Teachers (PGCE+QTS)</div>
           </div>
           <div class="stat">
             <div class="stat-num">Free</div>
-            <div class="stat-label">Trial Session</div>
+            <div class="stat-label">Trail Session</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">Flexible</div>
+            <div class="stat-label">Lesson Packages</div>
           </div>
         </div>
       </div>
@@ -984,21 +1279,23 @@
       <div class="steps-grid">
         <div class="step-card">
           <div class="step-num">1</div>
-          <h3>Tell Us Your Needs</h3>
-          <p>Fill in our quick form with your child's subject, year group, learning goals, and schedule preferences. The
-            more detail the better!</p>
+          <h3>Get Started</h3>
+          <p>Reach out via WhatsApp, phone, or our simple online form. Just tell us your child's needs and we'll take it from there.</p>
         </div>
         <div class="step-card">
           <div class="step-num">2</div>
-          <h3>We Find Your Match</h3>
-          <p>Our team personally reviews your requirements and selects the most compatible certified tutor from our
-            vetted network.</p>
+          <h3>We Handpick Your Teacher</h3>
+          <p>Our team carefully reviews your requirements and selects the most suitable qualified teacher — not just by subject, but by teaching style and personality fit.</p>
         </div>
         <div class="step-card">
           <div class="step-num">3</div>
-          <h3>Start Learning</h3>
-          <p>Begin with a complimentary trial session to ensure it's a great fit — then continue with ongoing,
-            personalised lessons.</p>
+          <h3>Book Your Free Trial</h3>
+          <p>Your teacher will arrange your first session at a time that suits you. The trial includes a friendly introduction and a short diagnostic assessment. Your tutor will then provide personalised feedback and a tailored action plan, while giving you the opportunity to ensure they are the right fit for your child.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <h3>Choose Your Plan & Get Started</h3>
+          <p>Select from a range of lesson packages to suit your child's goals and schedule. Once confirmed, your teacher will set up a consistent weekly timetable so learning stays on track.</p>
         </div>
       </div>
     </div>
@@ -1086,30 +1383,229 @@
             </div>
             <div class="form-group">
               <label>Phone / WhatsApp</label>
-              <input type="tel" placeholder="+971 ..." />
+              <div class="phone-input-wrap">
+                <select id="parent-country-code" class="country-code-select">
+                  <option value="+971">🇦🇪 +971</option>
+                  <option value="+44">🇬🇧 +44</option>
+                  <option value="+1">🇺🇸 +1</option>
+                  <option value="+93">🇦🇫 +93</option>
+                  <option value="+355">🇦🇱 +355</option>
+                  <option value="+213">🇩🇿 +213</option>
+                  <option value="+376">🇦🇩 +376</option>
+                  <option value="+244">🇦🇴 +244</option>
+                  <option value="+54">🇦🇷 +54</option>
+                  <option value="+374">🇦🇲 +374</option>
+                  <option value="+61">🇦🇺 +61</option>
+                  <option value="+43">🇦🇹 +43</option>
+                  <option value="+994">🇦🇿 +994</option>
+                  <option value="+973">🇧🇭 +973</option>
+                  <option value="+880">🇧🇩 +880</option>
+                  <option value="+32">🇧🇪 +32</option>
+                  <option value="+501">🇧🇿 +501</option>
+                  <option value="+229">🇧🇯 +229</option>
+                  <option value="+975">🇧🇹 +975</option>
+                  <option value="+591">🇧🇴 +591</option>
+                  <option value="+387">🇧🇦 +387</option>
+                  <option value="+267">🇧🇼 +267</option>
+                  <option value="+55">🇧🇷 +55</option>
+                  <option value="+673">🇧🇳 +673</option>
+                  <option value="+359">🇧🇬 +359</option>
+                  <option value="+226">🇧🇫 +226</option>
+                  <option value="+257">🇧🇮 +257</option>
+                  <option value="+855">🇰🇭 +855</option>
+                  <option value="+237">🇨🇲 +237</option>
+                  <option value="+1">🇨🇦 +1</option>
+                  <option value="+238">🇨🇻 +238</option>
+                  <option value="+236">🇨🇫 +236</option>
+                  <option value="+235">🇹🇩 +235</option>
+                  <option value="+56">🇨🇱 +56</option>
+                  <option value="+86">🇨🇳 +86</option>
+                  <option value="+57">🇨🇴 +57</option>
+                  <option value="+269">🇰🇲 +269</option>
+                  <option value="+242">🇨🇬 +242</option>
+                  <option value="+506">🇨🇷 +506</option>
+                  <option value="+385">🇭🇷 +385</option>
+                  <option value="+53">🇨🇺 +53</option>
+                  <option value="+357">🇨🇾 +357</option>
+                  <option value="+420">🇨🇿 +420</option>
+                  <option value="+45">🇩🇰 +45</option>
+                  <option value="+253">🇩🇯 +253</option>
+                  <option value="+1-767">🇩🇲 +1-767</option>
+                  <option value="+1-809">🇩🇴 +1-809</option>
+                  <option value="+593">🇪🇨 +593</option>
+                  <option value="+20">🇪🇬 +20</option>
+                  <option value="+503">🇸🇻 +503</option>
+                  <option value="+240">🇬🇶 +240</option>
+                  <option value="+291">🇪🇷 +291</option>
+                  <option value="+372">🇪🇪 +372</option>
+                  <option value="+268">🇸🇿 +268</option>
+                  <option value="+251">🇪🇹 +251</option>
+                  <option value="+679">🇫🇯 +679</option>
+                  <option value="+358">🇫🇮 +358</option>
+                  <option value="+33">🇫🇷 +33</option>
+                  <option value="+241">🇬🇦 +241</option>
+                  <option value="+220">🇬🇲 +220</option>
+                  <option value="+995">🇬🇪 +995</option>
+                  <option value="+49">🇩🇪 +49</option>
+                  <option value="+233">🇬🇭 +233</option>
+                  <option value="+30">🇬🇷 +30</option>
+                  <option value="+1-473">🇬🇩 +1-473</option>
+                  <option value="+502">🇬🇹 +502</option>
+                  <option value="+224">🇬🇳 +224</option>
+                  <option value="+245">🇬🇼 +245</option>
+                  <option value="+592">🇬🇾 +592</option>
+                  <option value="+509">🇭🇹 +509</option>
+                  <option value="+504">🇭🇳 +504</option>
+                  <option value="+36">🇭🇺 +36</option>
+                  <option value="+354">🇮🇸 +354</option>
+                  <option value="+91">🇮🇳 +91</option>
+                  <option value="+62">🇮🇩 +62</option>
+                  <option value="+98">🇮🇷 +98</option>
+                  <option value="+964">🇮🇶 +964</option>
+                  <option value="+353">🇮🇪 +353</option>
+                  <option value="+972">🇮🇱 +972</option>
+                  <option value="+39">🇮🇹 +39</option>
+                  <option value="+1-876">🇯🇲 +1-876</option>
+                  <option value="+81">🇯🇵 +81</option>
+                  <option value="+962">🇯🇴 +962</option>
+                  <option value="+7">🇰🇿 +7</option>
+                  <option value="+254">🇰🇪 +254</option>
+                  <option value="+686">🇰🇮 +686</option>
+                  <option value="+850">🇰🇵 +850</option>
+                  <option value="+82">🇰🇷 +82</option>
+                  <option value="+965">🇰🇼 +965</option>
+                  <option value="+996">🇰🇬 +996</option>
+                  <option value="+856">🇱🇦 +856</option>
+                  <option value="+371">🇱🇻 +371</option>
+                  <option value="+961">🇱🇧 +961</option>
+                  <option value="+266">🇱🇸 +266</option>
+                  <option value="+231">🇱🇷 +231</option>
+                  <option value="+218">🇱🇾 +218</option>
+                  <option value="+423">🇱🇮 +423</option>
+                  <option value="+370">🇱🇹 +370</option>
+                  <option value="+352">🇱🇺 +352</option>
+                  <option value="+261">🇲🇬 +261</option>
+                  <option value="+265">🇲🇼 +265</option>
+                  <option value="+60">🇲🇾 +60</option>
+                  <option value="+960">🇲🇻 +960</option>
+                  <option value="+223">🇲🇱 +223</option>
+                  <option value="+356">🇲🇹 +356</option>
+                  <option value="+692">🇲🇭 +692</option>
+                  <option value="+222">🇲🇷 +222</option>
+                  <option value="+230">🇲🇺 +230</option>
+                  <option value="+52">🇲🇽 +52</option>
+                  <option value="+691">🇫🇲 +691</option>
+                  <option value="+373">🇲🇩 +373</option>
+                  <option value="+377">🇲🇨 +377</option>
+                  <option value="+976">🇲🇳 +976</option>
+                  <option value="+382">🇲🇪 +382</option>
+                  <option value="+212">🇲🇦 +212</option>
+                  <option value="+258">🇲🇿 +258</option>
+                  <option value="+95">🇲🇲 +95</option>
+                  <option value="+264">🇳🇦 +264</option>
+                  <option value="+674">🇳🇷 +674</option>
+                  <option value="+977">🇳🇵 +977</option>
+                  <option value="+31">🇳🇱 +31</option>
+                  <option value="+64">🇳🇿 +64</option>
+                  <option value="+505">🇳🇮 +505</option>
+                  <option value="+227">🇳🇪 +227</option>
+                  <option value="+234">🇳🇬 +234</option>
+                  <option value="+389">🇲🇰 +389</option>
+                  <option value="+47">🇳🇴 +47</option>
+                  <option value="+968">🇴🇲 +968</option>
+                  <option value="+92">🇵🇰 +92</option>
+                  <option value="+680">🇵🇼 +680</option>
+                  <option value="+970">🇵🇸 +970</option>
+                  <option value="+507">🇵🇦 +507</option>
+                  <option value="+675">🇵🇬 +675</option>
+                  <option value="+595">🇵🇾 +595</option>
+                  <option value="+51">🇵🇪 +51</option>
+                  <option value="+63">🇵🇭 +63</option>
+                  <option value="+48">🇵🇱 +48</option>
+                  <option value="+351">🇵🇹 +351</option>
+                  <option value="+974">🇶🇦 +974</option>
+                  <option value="+40">🇷🇴 +40</option>
+                  <option value="+7">🇷🇺 +7</option>
+                  <option value="+250">🇷🇼 +250</option>
+                  <option value="+1-869">🇰🇳 +1-869</option>
+                  <option value="+1-758">🇱🇨 +1-758</option>
+                  <option value="+1-784">🇻🇨 +1-784</option>
+                  <option value="+685">🇼🇸 +685</option>
+                  <option value="+378">🇸🇲 +378</option>
+                  <option value="+239">🇸🇹 +239</option>
+                  <option value="+966">🇸🇦 +966</option>
+                  <option value="+221">🇸🇳 +221</option>
+                  <option value="+381">🇷🇸 +381</option>
+                  <option value="+248">🇸🇨 +248</option>
+                  <option value="+232">🇸🇱 +232</option>
+                  <option value="+65">🇸🇬 +65</option>
+                  <option value="+421">🇸🇰 +421</option>
+                  <option value="+386">🇸🇮 +386</option>
+                  <option value="+677">🇸🇧 +677</option>
+                  <option value="+252">🇸🇴 +252</option>
+                  <option value="+27">🇿🇦 +27</option>
+                  <option value="+211">🇸🇸 +211</option>
+                  <option value="+34">🇪🇸 +34</option>
+                  <option value="+94">🇱🇰 +94</option>
+                  <option value="+249">🇸🇩 +249</option>
+                  <option value="+597">🇸🇷 +597</option>
+                  <option value="+46">🇸🇪 +46</option>
+                  <option value="+41">🇨🇭 +41</option>
+                  <option value="+963">🇸🇾 +963</option>
+                  <option value="+886">🇹🇼 +886</option>
+                  <option value="+992">🇹🇯 +992</option>
+                  <option value="+255">🇹🇿 +255</option>
+                  <option value="+66">🇹🇭 +66</option>
+                  <option value="+670">🇹🇱 +670</option>
+                  <option value="+228">🇹🇬 +228</option>
+                  <option value="+676">🇹🇴 +676</option>
+                  <option value="+1-868">🇹🇹 +1-868</option>
+                  <option value="+216">🇹🇳 +216</option>
+                  <option value="+90">🇹🇷 +90</option>
+                  <option value="+993">🇹🇲 +993</option>
+                  <option value="+688">🇹🇻 +688</option>
+                  <option value="+256">🇺🇬 +256</option>
+                  <option value="+380">🇺🇦 +380</option>
+                  <option value="+598">🇺🇾 +598</option>
+                  <option value="+998">🇺🇿 +998</option>
+                  <option value="+678">🇻🇺 +678</option>
+                  <option value="+379">🇻🇦 +379</option>
+                  <option value="+58">🇻🇪 +58</option>
+                  <option value="+84">🇻🇳 +84</option>
+                  <option value="+967">🇾🇪 +967</option>
+                  <option value="+260">🇿🇲 +260</option>
+                  <option value="+263">🇿🇼 +263</option>
+                </select>
+                <input type="tel" id="parent-phone-number" placeholder="50 123 4567" class="phone-number-input" />
+              </div>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label>Subject Needed *</label>
-              <select>
-                <option value="">Select subject...</option>
-                <option>Mathematics</option>
-                <option>English</option>
-                <option>Science</option>
-                <option>Drama</option>
-                <option>Phonics</option>
-                <option>History</option>
-                <option>Business</option>
-                <option>Computer Science</option>
-                <option>Geography</option>
-                <option>Economics</option>
-                <option>French</option>
-                <option>Spanish</option>
-                <option>Piano</option>
-                <option>Arabic</option>
-                <option>Psychology</option>
-              </select>
+              <label>Subject(s) Needed *</label>
+              <div class="multi-select" id="parent-subject-select">
+                <div class="multi-select-trigger" onclick="toggleMultiSelect('parent-subject-select')">
+                  <span class="multi-select-placeholder">Select subject(s)...</span>
+                  <span class="multi-select-arrow">▾</span>
+                </div>
+                <div class="multi-select-dropdown">
+                  <label class="multi-select-option"><input type="checkbox" value="Mathematics"> Mathematics</label>
+                  <label class="multi-select-option"><input type="checkbox" value="English"> English</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Science"> Science</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Drama"> Drama</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Phonics"> Phonics</label>
+                  <label class="multi-select-option"><input type="checkbox" value="History"> History</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Business"> Business</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Computer Science"> Computer Science</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Geography"> Geography</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Economics"> Economics</label>
+                  <label class="multi-select-option"><input type="checkbox" value="French"> French</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Spanish"> Spanish</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Piano"> Piano</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Arabic"> Arabic</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Psychology"> Psychology</label>
+                </div>
+              </div>
             </div>
             <div class="form-group">
               <label>Year / Grade *</label>
@@ -1131,13 +1627,12 @@
               <option value="">Select preference...</option>
               <option>Online Only</option>
               <option>In-Person Only</option>
-              <option>Either / Flexible</option>
             </select>
           </div>
           <div class="form-group">
             <label>Tell Us More About Your Needs</label>
             <textarea
-              placeholder="e.g. struggling with algebra, preparing for exams, needs confidence boost..."></textarea>
+              placeholder="Tell us a little more about what you're looking for - including the curriculum, how many sessions per week you'd like, and the days and times that work best for you."></textarea>
           </div>
           <button class="btn-submit" id="parent-submit-btn" onclick="submitParentForm()">Submit My Interest →</button>
           <div class="success-banner" id="parent-success">🎉 Thank you! We'll be in touch within 24 hours.</div>
@@ -1151,84 +1646,441 @@
   <!-- BECOME A TUTOR -->
   <section id="become-tutor">
     <div class="container">
-      <div class="section-label">Join Our Team</div>
-      <div class="section-title" style="color:var(--white)">Become a Tutor</div>
-      <div class="section-sub" style="color:rgba(255,255,255,0.7)">Are you a qualified teacher passionate about making a
-        difference? We'd love to hear from you.</div>
+
+      <div class="section-title" style="color:var(--white)">Join Our Teachers</div>
+      <div class="section-sub" style="color:rgba(255,255,255,0.7)">Want to be part of an exclusive team of educators who
+        make an impact? At Qualified Teachers, our aim is to match you with students who need your expertise!</div>
 
       <div class="tutor-layout">
         <div class="tutor-form-card">
-          <h3 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1.3rem;margin-bottom:0.4rem;">
-            Tutor Application</h3>
-          <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;margin-bottom:1.6rem;">We review every application
-            personally. Only qualified, experienced teachers are accepted.</p>
-          <div class="form-row">
-            <div class="form-group">
-              <label>First Name *</label>
-              <input type="text" placeholder="First name" />
+          <h3 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1.5rem;margin-bottom:0.4rem;">Teacher Application</h3>
+          <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;margin-bottom:2rem;">We review every application personally. Only qualified, experienced teachers are accepted.</p>
+
+          <!-- SECTION 1: PERSONAL INFORMATION -->
+          <div class="tutor-form-section">
+            <div class="tutor-form-section-title">Personal Information</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name *</label>
+                <input type="text" placeholder="First name" />
+              </div>
+              <div class="form-group">
+                <label>Last Name *</label>
+                <input type="text" placeholder="Last name" />
+              </div>
             </div>
             <div class="form-group">
-              <label>Last Name *</label>
-              <input type="text" placeholder="Last name" />
+              <label>Email Address *</label>
+              <input type="email" placeholder="you@email.com" />
+            </div>
+            <div class="form-group">
+              <label>Phone / WhatsApp *</label>
+              <div class="phone-input-wrap">
+                <select id="tutor-country-code" class="country-code-select">
+                  <option value="+971">🇦🇪 +971</option>
+                  <option value="+44">🇬🇧 +44</option>
+                  <option value="+1">🇺🇸 +1</option>
+                  <option value="+93">🇦🇫 +93</option>
+                  <option value="+355">🇦🇱 +355</option>
+                  <option value="+213">🇩🇿 +213</option>
+                  <option value="+376">🇦🇩 +376</option>
+                  <option value="+244">🇦🇴 +244</option>
+                  <option value="+54">🇦🇷 +54</option>
+                  <option value="+374">🇦🇲 +374</option>
+                  <option value="+61">🇦🇺 +61</option>
+                  <option value="+43">🇦🇹 +43</option>
+                  <option value="+994">🇦🇿 +994</option>
+                  <option value="+973">🇧🇭 +973</option>
+                  <option value="+880">🇧🇩 +880</option>
+                  <option value="+32">🇧🇪 +32</option>
+                  <option value="+501">🇧🇿 +501</option>
+                  <option value="+229">🇧🇯 +229</option>
+                  <option value="+975">🇧🇹 +975</option>
+                  <option value="+591">🇧🇴 +591</option>
+                  <option value="+387">🇧🇦 +387</option>
+                  <option value="+267">🇧🇼 +267</option>
+                  <option value="+55">🇧🇷 +55</option>
+                  <option value="+673">🇧🇳 +673</option>
+                  <option value="+359">🇧🇬 +359</option>
+                  <option value="+226">🇧🇫 +226</option>
+                  <option value="+257">🇧🇮 +257</option>
+                  <option value="+855">🇰🇭 +855</option>
+                  <option value="+237">🇨🇲 +237</option>
+                  <option value="+1">🇨🇦 +1</option>
+                  <option value="+238">🇨🇻 +238</option>
+                  <option value="+236">🇨🇫 +236</option>
+                  <option value="+235">🇹🇩 +235</option>
+                  <option value="+56">🇨🇱 +56</option>
+                  <option value="+86">🇨🇳 +86</option>
+                  <option value="+57">🇨🇴 +57</option>
+                  <option value="+269">🇰🇲 +269</option>
+                  <option value="+242">🇨🇬 +242</option>
+                  <option value="+506">🇨🇷 +506</option>
+                  <option value="+385">🇭🇷 +385</option>
+                  <option value="+53">🇨🇺 +53</option>
+                  <option value="+357">🇨🇾 +357</option>
+                  <option value="+420">🇨🇿 +420</option>
+                  <option value="+45">🇩🇰 +45</option>
+                  <option value="+253">🇩🇯 +253</option>
+                  <option value="+1-767">🇩🇲 +1-767</option>
+                  <option value="+1-809">🇩🇴 +1-809</option>
+                  <option value="+593">🇪🇨 +593</option>
+                  <option value="+20">🇪🇬 +20</option>
+                  <option value="+503">🇸🇻 +503</option>
+                  <option value="+240">🇬🇶 +240</option>
+                  <option value="+291">🇪🇷 +291</option>
+                  <option value="+372">🇪🇪 +372</option>
+                  <option value="+268">🇸🇿 +268</option>
+                  <option value="+251">🇪🇹 +251</option>
+                  <option value="+679">🇫🇯 +679</option>
+                  <option value="+358">🇫🇮 +358</option>
+                  <option value="+33">🇫🇷 +33</option>
+                  <option value="+241">🇬🇦 +241</option>
+                  <option value="+220">🇬🇲 +220</option>
+                  <option value="+995">🇬🇪 +995</option>
+                  <option value="+49">🇩🇪 +49</option>
+                  <option value="+233">🇬🇭 +233</option>
+                  <option value="+30">🇬🇷 +30</option>
+                  <option value="+1-473">🇬🇩 +1-473</option>
+                  <option value="+502">🇬🇹 +502</option>
+                  <option value="+224">🇬🇳 +224</option>
+                  <option value="+245">🇬🇼 +245</option>
+                  <option value="+592">🇬🇾 +592</option>
+                  <option value="+509">🇭🇹 +509</option>
+                  <option value="+504">🇭🇳 +504</option>
+                  <option value="+36">🇭🇺 +36</option>
+                  <option value="+354">🇮🇸 +354</option>
+                  <option value="+91">🇮🇳 +91</option>
+                  <option value="+62">🇮🇩 +62</option>
+                  <option value="+98">🇮🇷 +98</option>
+                  <option value="+964">🇮🇶 +964</option>
+                  <option value="+353">🇮🇪 +353</option>
+                  <option value="+972">🇮🇱 +972</option>
+                  <option value="+39">🇮🇹 +39</option>
+                  <option value="+1-876">🇯🇲 +1-876</option>
+                  <option value="+81">🇯🇵 +81</option>
+                  <option value="+962">🇯🇴 +962</option>
+                  <option value="+7">🇰🇿 +7</option>
+                  <option value="+254">🇰🇪 +254</option>
+                  <option value="+686">🇰🇮 +686</option>
+                  <option value="+850">🇰🇵 +850</option>
+                  <option value="+82">🇰🇷 +82</option>
+                  <option value="+965">🇰🇼 +965</option>
+                  <option value="+996">🇰🇬 +996</option>
+                  <option value="+856">🇱🇦 +856</option>
+                  <option value="+371">🇱🇻 +371</option>
+                  <option value="+961">🇱🇧 +961</option>
+                  <option value="+266">🇱🇸 +266</option>
+                  <option value="+231">🇱🇷 +231</option>
+                  <option value="+218">🇱🇾 +218</option>
+                  <option value="+423">🇱🇮 +423</option>
+                  <option value="+370">🇱🇹 +370</option>
+                  <option value="+352">🇱🇺 +352</option>
+                  <option value="+261">🇲🇬 +261</option>
+                  <option value="+265">🇲🇼 +265</option>
+                  <option value="+60">🇲🇾 +60</option>
+                  <option value="+960">🇲🇻 +960</option>
+                  <option value="+223">🇲🇱 +223</option>
+                  <option value="+356">🇲🇹 +356</option>
+                  <option value="+692">🇲🇭 +692</option>
+                  <option value="+222">🇲🇷 +222</option>
+                  <option value="+230">🇲🇺 +230</option>
+                  <option value="+52">🇲🇽 +52</option>
+                  <option value="+691">🇫🇲 +691</option>
+                  <option value="+373">🇲🇩 +373</option>
+                  <option value="+377">🇲🇨 +377</option>
+                  <option value="+976">🇲🇳 +976</option>
+                  <option value="+382">🇲🇪 +382</option>
+                  <option value="+212">🇲🇦 +212</option>
+                  <option value="+258">🇲🇿 +258</option>
+                  <option value="+95">🇲🇲 +95</option>
+                  <option value="+264">🇳🇦 +264</option>
+                  <option value="+674">🇳🇷 +674</option>
+                  <option value="+977">🇳🇵 +977</option>
+                  <option value="+31">🇳🇱 +31</option>
+                  <option value="+64">🇳🇿 +64</option>
+                  <option value="+505">🇳🇮 +505</option>
+                  <option value="+227">🇳🇪 +227</option>
+                  <option value="+234">🇳🇬 +234</option>
+                  <option value="+389">🇲🇰 +389</option>
+                  <option value="+47">🇳🇴 +47</option>
+                  <option value="+968">🇴🇲 +968</option>
+                  <option value="+92">🇵🇰 +92</option>
+                  <option value="+680">🇵🇼 +680</option>
+                  <option value="+970">🇵🇸 +970</option>
+                  <option value="+507">🇵🇦 +507</option>
+                  <option value="+675">🇵🇬 +675</option>
+                  <option value="+595">🇵🇾 +595</option>
+                  <option value="+51">🇵🇪 +51</option>
+                  <option value="+63">🇵🇭 +63</option>
+                  <option value="+48">🇵🇱 +48</option>
+                  <option value="+351">🇵🇹 +351</option>
+                  <option value="+974">🇶🇦 +974</option>
+                  <option value="+40">🇷🇴 +40</option>
+                  <option value="+7">🇷🇺 +7</option>
+                  <option value="+250">🇷🇼 +250</option>
+                  <option value="+1-869">🇰🇳 +1-869</option>
+                  <option value="+1-758">🇱🇨 +1-758</option>
+                  <option value="+1-784">🇻🇨 +1-784</option>
+                  <option value="+685">🇼🇸 +685</option>
+                  <option value="+378">🇸🇲 +378</option>
+                  <option value="+239">🇸🇹 +239</option>
+                  <option value="+966">🇸🇦 +966</option>
+                  <option value="+221">🇸🇳 +221</option>
+                  <option value="+381">🇷🇸 +381</option>
+                  <option value="+248">🇸🇨 +248</option>
+                  <option value="+232">🇸🇱 +232</option>
+                  <option value="+65">🇸🇬 +65</option>
+                  <option value="+421">🇸🇰 +421</option>
+                  <option value="+386">🇸🇮 +386</option>
+                  <option value="+677">🇸🇧 +677</option>
+                  <option value="+252">🇸🇴 +252</option>
+                  <option value="+27">🇿🇦 +27</option>
+                  <option value="+211">🇸🇸 +211</option>
+                  <option value="+34">🇪🇸 +34</option>
+                  <option value="+94">🇱🇰 +94</option>
+                  <option value="+249">🇸🇩 +249</option>
+                  <option value="+597">🇸🇷 +597</option>
+                  <option value="+46">🇸🇪 +46</option>
+                  <option value="+41">🇨🇭 +41</option>
+                  <option value="+963">🇸🇾 +963</option>
+                  <option value="+886">🇹🇼 +886</option>
+                  <option value="+992">🇹🇯 +992</option>
+                  <option value="+255">🇹🇿 +255</option>
+                  <option value="+66">🇹🇭 +66</option>
+                  <option value="+670">🇹🇱 +670</option>
+                  <option value="+228">🇹🇬 +228</option>
+                  <option value="+676">🇹🇴 +676</option>
+                  <option value="+1-868">🇹🇹 +1-868</option>
+                  <option value="+216">🇹🇳 +216</option>
+                  <option value="+90">🇹🇷 +90</option>
+                  <option value="+993">🇹🇲 +993</option>
+                  <option value="+688">🇹🇻 +688</option>
+                  <option value="+256">🇺🇬 +256</option>
+                  <option value="+380">🇺🇦 +380</option>
+                  <option value="+598">🇺🇾 +598</option>
+                  <option value="+998">🇺🇿 +998</option>
+                  <option value="+678">🇻🇺 +678</option>
+                  <option value="+379">🇻🇦 +379</option>
+                  <option value="+58">🇻🇪 +58</option>
+                  <option value="+84">🇻🇳 +84</option>
+                  <option value="+967">🇾🇪 +967</option>
+                  <option value="+260">🇿🇲 +260</option>
+                  <option value="+263">🇿🇼 +263</option>
+              </select>
+                <input type="tel" id="tutor-phone-number" placeholder="50 123 4567" class="phone-number-input" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Location in the UAE</label>
+                <input type="text" placeholder="e.g. Dubai Marina, Abu Dhabi" />
+              </div>
+              <div class="form-group">
+                <label>Nationality</label>
+                <input type="text" placeholder="e.g. British, Indian" />
+              </div>
             </div>
           </div>
-          <div class="form-group">
-            <label>Email Address *</label>
-            <input type="email" placeholder="you@email.com" />
-          </div>
-          <div class="form-group">
-            <label>Phone / WhatsApp *</label>
-            <input type="tel" placeholder="+971 ..." />
-          </div>
-          <div class="form-group">
-            <label>Teaching Qualification *</label>
-            <select>
-              <option value="">Select qualification...</option>
-              <option>PGCE / QTS</option>
-              <option>BEd (Bachelor of Education)</option>
-              <option>MEd (Master of Education)</option>
-              <option>IB Certified Teacher</option>
-              <option>Other Teaching Qualification</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Primary Subject(s) *</label>
-            <input type="text" placeholder="e.g. Mathematics, Further Maths" />
-          </div>
-          <div class="form-row">
+
+          <!-- SECTION 2: PROFESSIONAL DETAILS -->
+          <div class="tutor-form-section">
+            <div class="tutor-form-section-title">Professional Details</div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Years of Qualified Teaching Experience</label>
+                <input type="number" min="0" max="50" placeholder="e.g. 5" />
+              </div>
+              <div class="form-group">
+                <label>Years Teaching in the UAE</label>
+                <input type="number" min="0" max="50" placeholder="e.g. 2" />
+              </div>
+            </div>
+
             <div class="form-group">
-              <label>Years of Experience</label>
-              <select>
+              <label>Please describe any tutoring experience you have</label>
+              <textarea placeholder="Tell us about your tutoring background, any private students, tutoring agencies, etc."></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Do you hold a PGCE with QTS? *</label>
+                <select id="tutor-pgce-qts">
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div class="form-group" id="pgce-type-group" style="display:none;">
+                <label>What type of PGCE do you hold?</label>
+                <select id="tutor-pgce-type">
+                  <option value="">Select...</option>
+                  <option>Early Years</option>
+                  <option>Primary</option>
+                  <option>Secondary</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Which year groups do you prefer to tutor?</label>
+              <div class="multi-select multi-select-dark" id="tutor-yeargroup-select">
+                <div class="multi-select-trigger" onclick="toggleMultiSelect('tutor-yeargroup-select')">
+                  <span class="multi-select-placeholder">Select year group(s)...</span>
+                  <span class="multi-select-arrow">▾</span>
+                </div>
+                <div class="multi-select-dropdown">
+                  <label class="multi-select-option"><input type="checkbox" value="Early Years (FS1–FS2)"> Early Years (FS1–FS2)</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Primary (Year 1–6)"> Primary (Year 1–6)</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Secondary (Year 7–11)"> Secondary (Year 7–11)</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Sixth Form / A-Level / IB"> Sixth Form / A-Level / IB</label>
+                  <label class="multi-select-option"><input type="checkbox" value="University Level"> University Level</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>What type of sessions can you offer?</label>
+                <select>
+                  <option value="">Select...</option>
+                  <option>Face to Face</option>
+                  <option>Online</option>
+                  <option>Both</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Do you agree to a free trial session? *</label>
+                <select>
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Primary subjects you are qualified to teach</label>
+              <div class="multi-select multi-select-dark" id="tutor-primary-subjects">
+                <div class="multi-select-trigger" onclick="toggleMultiSelect('tutor-primary-subjects')">
+                  <span class="multi-select-placeholder">Select subject(s)...</span>
+                  <span class="multi-select-arrow">▾</span>
+                </div>
+                <div class="multi-select-dropdown">
+                  <label class="multi-select-option"><input type="checkbox" value="Arabic"> Arabic</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Swimming"> Swimming</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Maths"> Maths</label>
+                  <label class="multi-select-option"><input type="checkbox" value="French"> French</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Reading"> Reading</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Piano"> Piano</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Social Studies"> Social Studies</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Phonics"> Phonics</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Spanish"> Spanish</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Science"> Science</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Writing"> Writing</label>
+                  <label class="multi-select-option"><input type="checkbox" value="None"> None</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Secondary subjects you are qualified to teach</label>
+              <div class="multi-select multi-select-dark" id="tutor-secondary-subjects">
+                <div class="multi-select-trigger" onclick="toggleMultiSelect('tutor-secondary-subjects')">
+                  <span class="multi-select-placeholder">Select subject(s)...</span>
+                  <span class="multi-select-arrow">▾</span>
+                </div>
+                <div class="multi-select-dropdown">
+                  <label class="multi-select-option"><input type="checkbox" value="Maths"> Maths</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Science"> Science</label>
+                  <label class="multi-select-option"><input type="checkbox" value="English"> English</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Social Studies"> Social Studies</label>
+                  <label class="multi-select-option"><input type="checkbox" value="French"> French</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Arabic"> Arabic</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Spanish"> Spanish</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Business"> Business</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Psychology"> Psychology</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Geography"> Geography</label>
+                  <label class="multi-select-option"><input type="checkbox" value="None"> None</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Curriculums you have experience teaching</label>
+              <div class="multi-select multi-select-dark" id="tutor-curriculum-select">
+                <div class="multi-select-trigger" onclick="toggleMultiSelect('tutor-curriculum-select')">
+                  <span class="multi-select-placeholder">Select curriculum(s)...</span>
+                  <span class="multi-select-arrow">▾</span>
+                </div>
+                <div class="multi-select-dropdown">
+                  <label class="multi-select-option"><input type="checkbox" value="Canadian Curriculum"> Canadian Curriculum</label>
+                  <label class="multi-select-option"><input type="checkbox" value="British Curriculum"> British Curriculum</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Indian Curriculum"> Indian Curriculum</label>
+                  <label class="multi-select-option"><input type="checkbox" value="American Curriculum"> American Curriculum</label>
+                  <label class="multi-select-option"><input type="checkbox" value="IB Curriculum"> IB Curriculum</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Other"> Other</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="tutor-form-section-title" style="margin-top:1.5rem;">Document Uploads</div>
+            <div class="form-group">
+              <label>Upload your CV</label>
+              <input type="file" accept=".pdf,.doc,.docx" class="file-upload-input" />
+            </div>
+            <div class="form-group">
+              <label>Upload your PGCE</label>
+              <input type="file" accept=".pdf,.doc,.docx,.jpg,.png" class="file-upload-input" />
+            </div>
+            <div class="form-group">
+              <label>Upload your QTS / BEd Degree</label>
+              <input type="file" accept=".pdf,.doc,.docx,.jpg,.png" class="file-upload-input" />
+            </div>
+
+          </div>
+
+          <!-- SECTION 3: ABOUT YOU -->
+          <div class="tutor-form-section">
+            <div class="tutor-form-section-title">About You</div>
+
+            <div class="form-group">
+              <label>Give us a glimpse into how you teach and support your learners.</label>
+              <textarea id="tutor-teaching-style" rows="5" placeholder="Think of this as your chance to make a great first impression! This will be displayed on your tutor profile for parents to read, so the more effort you put in here, the better your chances of securing bookings."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>What are you passionate about outside of teaching that could positively influence your students?</label>
+              <textarea id="tutor-passions" rows="8" placeholder="Share something that makes you uniquely you — perhaps you speak multiple languages, coached a sports team, played an instrument to a high level, launched a business, led a passion project, or have a hobby or interest that students would find inspiring. Parents love knowing their child is learning from someone with a rich and varied life experience."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Do you have any criminal convictions in the UAE or internationally? *</label>
+              <select id="tutor-convictions">
                 <option value="">Select...</option>
-                <option>1–2 years</option>
-                <option>3–5 years</option>
-                <option>6–10 years</option>
-                <option>10+ years</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
               </select>
             </div>
+
             <div class="form-group">
-              <label>Session Preference</label>
-              <select>
-                <option value="">Select...</option>
-                <option>Online Only</option>
-                <option>In-Person Only</option>
-                <option>Both</option>
-              </select>
+              <label>Signature *</label>
+              <p style="color:rgba(255,255,255,0.55);font-size:0.82rem;margin-bottom:10px;">Please sign below to confirm that all information provided is accurate and truthful, and that you agree to the Qualified Teachers terms and conditions.</p>
+              <div class="signature-wrap">
+                <canvas id="tutor-signature-canvas" class="signature-canvas"></canvas>
+                <button type="button" class="signature-clear-btn" onclick="clearSignature()">Clear</button>
+              </div>
             </div>
+
           </div>
-          <div class="form-group">
-            <label>Tell Us About Yourself</label>
-            <textarea placeholder="Teaching philosophy, experience, why you want to join..."></textarea>
-          </div>
-          <button class="btn-submit-gold" id="tutor-submit-btn" onclick="submitTutorForm()">Submit Application
-            →</button>
-          <div class="success-banner" id="tutor-success">🎉 Application received! We'll review it and be in touch soon.
-          </div>
-          <div class="error-banner" id="tutor-error">❌ Something went wrong. Please try again or contact us directly.
-          </div>
+
+          <button class="btn-submit-gold" id="tutor-submit-btn" onclick="submitTutorForm()">Submit Application →</button>
+          <div class="success-banner" id="tutor-success">🎉 Application received! We'll review it and be in touch soon.</div>
+          <div class="error-banner" id="tutor-error">❌ Something went wrong. Please try again or contact us directly.</div>
         </div>
 
-        <div class="tutor-benefits">
+                <div class="tutor-benefits">
           <h3>Why Tutor With Us?</h3>
           <div class="benefit-item">
             <div class="benefit-icon">🎯</div>
@@ -1392,6 +2244,141 @@
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
+    // ── MULTI-SELECT ──
+    function toggleMultiSelect(id) {
+      const el = document.getElementById(id);
+      const isOpen = el.classList.contains('open');
+      // Close all open dropdowns first
+      document.querySelectorAll('.multi-select.open').forEach(ms => ms.classList.remove('open'));
+      if (!isOpen) el.classList.add('open');
+    }
+
+    function getMultiSelectValues(id) {
+      const el = document.getElementById(id);
+      return Array.from(el.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
+    }
+
+    function updateMultiSelectLabel(id) {
+      const el = document.getElementById(id);
+      const selected = getMultiSelectValues(id);
+      const placeholder = el.querySelector('.multi-select-placeholder');
+      if (selected.length === 0) {
+        placeholder.textContent = 'Select subject(s)...';
+        placeholder.style.color = '';
+      } else {
+        placeholder.textContent = selected.join(', ');
+        placeholder.style.color = 'inherit';
+      }
+    }
+
+    function resetMultiSelect(id) {
+      const el = document.getElementById(id);
+      el.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+      updateMultiSelectLabel(id);
+    }
+
+    // Attach change listeners and close-on-outside-click
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.multi-select').forEach(ms => {
+        ms.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+          cb.addEventListener('change', () => updateMultiSelectLabel(ms.id));
+        });
+      });
+      // PGCE type conditional show/hide
+      const pgceQts = document.getElementById('tutor-pgce-qts');
+      if (pgceQts) {
+        pgceQts.addEventListener('change', () => {
+          document.getElementById('pgce-type-group').style.display =
+            pgceQts.value === 'Yes' ? 'block' : 'none';
+        });
+      }
+
+      document.addEventListener('click', e => {
+        if (!e.target.closest('.multi-select')) {
+          document.querySelectorAll('.multi-select.open').forEach(ms => ms.classList.remove('open'));
+        }
+      });
+    });
+
+
+    // ── SIGNATURE PAD ──
+    let signatureDrawing = false;
+    let signatureCanvas, signatureCtx;
+
+    function initSignaturePad() {
+      signatureCanvas = document.getElementById('tutor-signature-canvas');
+      if (!signatureCanvas) return;
+      signatureCtx = signatureCanvas.getContext('2d');
+
+      // Size canvas to its display size
+      function resizeCanvas() {
+        const rect = signatureCanvas.getBoundingClientRect();
+        signatureCanvas.width = rect.width;
+        signatureCanvas.height = rect.height;
+        signatureCtx.strokeStyle = '#1a2e45';
+        signatureCtx.lineWidth = 2;
+        signatureCtx.lineCap = 'round';
+        signatureCtx.lineJoin = 'round';
+      }
+      resizeCanvas();
+
+      function getPos(e) {
+        const rect = signatureCanvas.getBoundingClientRect();
+        const src = e.touches ? e.touches[0] : e;
+        return { x: src.clientX - rect.left, y: src.clientY - rect.top };
+      }
+
+      signatureCanvas.addEventListener('mousedown', e => {
+        signatureDrawing = true;
+        const p = getPos(e);
+        signatureCtx.beginPath();
+        signatureCtx.moveTo(p.x, p.y);
+      });
+      signatureCanvas.addEventListener('mousemove', e => {
+        if (!signatureDrawing) return;
+        const p = getPos(e);
+        signatureCtx.lineTo(p.x, p.y);
+        signatureCtx.stroke();
+      });
+      signatureCanvas.addEventListener('mouseup', () => signatureDrawing = false);
+      signatureCanvas.addEventListener('mouseleave', () => signatureDrawing = false);
+
+      // Touch support
+      signatureCanvas.addEventListener('touchstart', e => {
+        e.preventDefault();
+        signatureDrawing = true;
+        const p = getPos(e);
+        signatureCtx.beginPath();
+        signatureCtx.moveTo(p.x, p.y);
+      }, { passive: false });
+      signatureCanvas.addEventListener('touchmove', e => {
+        e.preventDefault();
+        if (!signatureDrawing) return;
+        const p = getPos(e);
+        signatureCtx.lineTo(p.x, p.y);
+        signatureCtx.stroke();
+      }, { passive: false });
+      signatureCanvas.addEventListener('touchend', () => signatureDrawing = false);
+    }
+
+    function clearSignature() {
+      if (signatureCtx) {
+        signatureCtx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
+      }
+    }
+
+    function isSignatureEmpty() {
+      if (!signatureCanvas) return true;
+      const pixels = signatureCtx.getImageData(0, 0, signatureCanvas.width, signatureCanvas.height).data;
+      return !pixels.some(p => p !== 0);
+    }
+
+    function getSignatureDataURL() {
+      return signatureCanvas ? signatureCanvas.toDataURL('image/png') : '';
+    }
+
+    document.addEventListener('DOMContentLoaded', initSignaturePad);
+
     const SHEET_URL = 'https://script.google.com/macros/s/AKfycbytU8DARcxE5Qk7TjJG9Mwo1iOq_8DJ93CCWnkRrr0pcxgw3I9hHh1AtcVuqfbuCk1L/exec';
 
     // ── PARENT FORM SUBMIT ──
@@ -1405,13 +2392,16 @@
       const parentName = inputs[0].value.trim();
       const childName = inputs[1].value.trim();
       const email = inputs[2].value.trim();
-      const phone = inputs[3].value.trim();
-      const subject = inputs[4].value;
+      const countryCode = document.getElementById('parent-country-code').value;
+      const phoneNumber = document.getElementById('parent-phone-number').value.trim();
+      const phone = phoneNumber ? countryCode + ' ' + phoneNumber : '';
+      const subjectList = getMultiSelectValues('parent-subject-select');
+      const subject = subjectList.join(', ');
       const yearGroup = inputs[5].value;
       const sessionPref = inputs[6].value;
       const notes = inputs[7].value.trim();
 
-      if (!parentName || !childName || !email || !subject || !yearGroup) {
+      if (!parentName || !childName || !email || subjectList.length === 0 || !yearGroup) {
         alert('Please fill in all required fields (marked with *).');
         return;
       }
@@ -1430,6 +2420,9 @@
         });
         successEl.style.display = 'block';
         inputs.forEach(el => el.value = '');
+        document.getElementById('parent-phone-number').value = '';
+        document.getElementById('parent-country-code').selectedIndex = 0;
+        resetMultiSelect('parent-subject-select');
         setTimeout(() => { successEl.style.display = 'none'; }, 6000);
       } catch (err) {
         errorEl.style.display = 'block';
@@ -1446,20 +2439,41 @@
       const successEl = document.getElementById('tutor-success');
       const errorEl = document.getElementById('tutor-error');
       const card = btn.closest('.tutor-form-card');
-      const inputs = card.querySelectorAll('input, select, textarea');
 
-      const firstName = inputs[0].value.trim();
-      const lastName = inputs[1].value.trim();
-      const email = inputs[2].value.trim();
-      const phone = inputs[3].value.trim();
-      const qualification = inputs[4].value;
-      const subjects = inputs[5].value.trim();
-      const experience = inputs[6].value;
-      const sessionPref = inputs[7].value;
-      const about = inputs[8].value.trim();
+      // Personal info
+      const inputs = card.querySelectorAll('input[type="text"], input[type="email"], input[type="number"]');
+      const firstName = card.querySelector('input[placeholder="First name"]').value.trim();
+      const lastName = card.querySelector('input[placeholder="Last name"]').value.trim();
+      const email = card.querySelector('input[type="email"]').value.trim();
+      const countryCode = document.getElementById('tutor-country-code').value;
+      const phoneNumber = document.getElementById('tutor-phone-number').value.trim();
+      const phone = phoneNumber ? countryCode + ' ' + phoneNumber : '';
+      const uaeLocation = card.querySelector('input[placeholder="e.g. Dubai Marina, Abu Dhabi"]').value.trim();
+      const nationality = card.querySelector('input[placeholder="e.g. British, Indian"]').value.trim();
 
-      if (!firstName || !lastName || !email || !phone || !qualification || !subjects) {
+      // Professional details
+      const yearsQualified = card.querySelector('input[placeholder="e.g. 5"]').value.trim();
+      const yearsUAE = card.querySelector('input[placeholder="e.g. 2"]').value.trim();
+      const tutoringExp = card.querySelector('textarea').value.trim();
+      const pgceQts = document.getElementById('tutor-pgce-qts').value;
+      const pgceType = document.getElementById('tutor-pgce-type').value;
+      const yearGroups = getMultiSelectValues('tutor-yeargroup-select').join(', ');
+      const sessionType = card.querySelectorAll('select')[3].value;
+      const freeTrial = card.querySelectorAll('select')[4].value;
+      const primarySubjects = getMultiSelectValues('tutor-primary-subjects').join(', ');
+      const secondarySubjects = getMultiSelectValues('tutor-secondary-subjects').join(', ');
+      const curriculums = getMultiSelectValues('tutor-curriculum-select').join(', ');
+      const teachingStyle = document.getElementById('tutor-teaching-style').value.trim();
+      const passions = document.getElementById('tutor-passions').value.trim();
+      const convictions = document.getElementById('tutor-convictions').value;
+      const signatureData = getSignatureDataURL();
+
+      if (!firstName || !lastName || !email || !phone) {
         alert('Please fill in all required fields (marked with *).');
+        return;
+      }
+      if (isSignatureEmpty()) {
+        alert('Please sign the declaration before submitting.');
         return;
       }
 
@@ -1473,10 +2487,24 @@
           method: 'POST',
           mode: 'no-cors',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ formType: 'tutor', firstName, lastName, email, phone, qualification, subjects, experience, sessionPreference: sessionPref, about })
+          body: JSON.stringify({
+            formType: 'tutor',
+            firstName, lastName, email, phone, uaeLocation, nationality,
+            yearsQualifiedTeaching: yearsQualified, yearsTeachingUAE: yearsUAE,
+            tutoringExperience: tutoringExp, pgceWithQTS: pgceQts, pgceType,
+            yearGroups, sessionType, freeTrial,
+            primarySubjects, secondarySubjects, curriculums,
+            teachingStyle, passions, criminalConvictions: convictions,
+            signatureProvided: 'Yes'
+          })
         });
         successEl.style.display = 'block';
-        inputs.forEach(el => el.value = '');
+        card.querySelectorAll('input[type="text"], input[type="email"], input[type="number"], textarea, select').forEach(el => el.value = '');
+        document.getElementById('tutor-phone-number').value = '';
+        document.getElementById('tutor-country-code').selectedIndex = 0;
+        document.getElementById('pgce-type-group').style.display = 'none';
+        ['tutor-yeargroup-select','tutor-primary-subjects','tutor-secondary-subjects','tutor-curriculum-select'].forEach(resetMultiSelect);
+        clearSignature();
         setTimeout(() => { successEl.style.display = 'none'; }, 6000);
       } catch (err) {
         errorEl.style.display = 'block';
