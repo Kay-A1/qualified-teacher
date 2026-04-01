@@ -1,5 +1,8 @@
 01/04/26
 
+v1.1.2
+    first section mobile optimised further
+
 v1.1.1
     mobile view optimised 
 
