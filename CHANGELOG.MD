@@ -1,5 +1,8 @@
 01/04/26
 
+v1.1.3
+    futher scaling isses fixed
+
 v1.1.2
     first section mobile optimised further
 
