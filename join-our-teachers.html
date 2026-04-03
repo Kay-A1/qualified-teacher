@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join Our Teachers | Qualified Teacher</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --navy: #0d1b2a;
+      --navy-mid: #1a2e45;
+      --gold: #c8a96e;
+      --gold-light: #e2c88a;
+      --cream: #faf8f3;
+      --cream-dark: #f0ebe0;
+      --text: #2c2c2c;
+      --text-light: #6b6b6b;
+      --white: #ffffff;
+      --radius: 12px;
+      --shadow: 0 8px 32px rgba(13, 27, 42, 0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 72px;
+      background: rgba(13, 27, 42, 0.96);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 9px 22px;
+      border-radius: 50px;
+      font-weight: 600 !important;
+    }
+    .nav-cta:hover { background: var(--gold-light); color: var(--navy) !important; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1e3a5f 100%);
+      padding: 140px 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(200,169,110,0.12) 0%, transparent 65%);
+    }
+    .page-hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      text-align: center;
+    }
+    .page-hero-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+    .page-hero h1 em { font-style: italic; color: var(--gold); }
+    .page-hero p {
+      color: rgba(255,255,255,0.72);
+      font-size: 1.1rem;
+      line-height: 1.75;
+    }
+
+    /* ── FORM SECTION ── */
+    .form-section {
+      padding: 90px 5%;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ── Inherited tutor styles ── */
+    .tutor-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+      margin-top: 56px;
+    }
+
+    .tutor-form-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 44px 40px;
+      backdrop-filter: blur(8px);
+    }
+    .tutor-form-card label { color: rgba(255,255,255,0.85); }
+    .tutor-form-card input,
+    .tutor-form-card select,
+    .tutor-form-card textarea {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.2);
+      color: var(--white);
+    }
+    .tutor-form-card input::placeholder { color: rgba(255,255,255,0.4); }
+    .tutor-form-card input:focus,
+    .tutor-form-card select:focus,
+    .tutor-form-card textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(200,169,110,0.2);
+    }
+    .tutor-form-card select option { background: var(--navy); color: var(--white); }
+    .tutor-form-card .phone-input-wrap {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.2);
+    }
+    .tutor-form-card .phone-input-wrap .country-code-select {
+      background: rgba(255,255,255,0.15);
+      border-right-color: rgba(255,255,255,0.2) !important;
+      color: var(--white);
+    }
+    .tutor-form-card .phone-input-wrap .phone-number-input {
+      background: transparent !important;
+      color: var(--white) !important;
+      border: none !important;
+      box-shadow: none !important;
+      pointer-events: auto !important;
+    }
+    .tutor-form-card .phone-input-wrap .phone-number-input::placeholder { color: rgba(255,255,255,0.4); }
+    .tutor-form-card .phone-input-wrap:focus-within {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(200,169,110,0.2);
+    }
+
+    .tutor-form-section {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 24px 22px;
+      margin-bottom: 20px;
+    }
+    .tutor-form-section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 1.4rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 1px solid rgba(200,169,110,0.25);
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid rgba(13,27,42,0.15);
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.93rem;
+      background: var(--white);
+      color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(200,169,110,0.15);
+    }
+    textarea { resize: vertical; min-height: 100px; }
+
+    .form-group { margin-bottom: 18px; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    /* Phone input */
+    .phone-input-wrap {
+      display: flex;
+      align-items: stretch;
+      border: 1.5px solid rgba(13,27,42,0.15);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .phone-input-wrap:focus-within {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(200,169,110,0.15);
+    }
+    .country-code-select {
+      width: 110px;
+      min-width: 110px;
+      max-width: 110px;
+      border: none !important;
+      border-right: 1.5px solid rgba(13,27,42,0.12) !important;
+      border-radius: 0 !important;
+      background: var(--cream-dark);
+      padding: 0 8px;
+      font-size: 0.85rem;
+      outline: none;
+      box-shadow: none !important;
+    }
+    .phone-number-input {
+      flex: 1;
+      border: none !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      padding: 12px 14px;
+    }
+
+    /* File upload */
+    .file-upload-input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px dashed rgba(200,169,110,0.5);
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      background: rgba(200,169,110,0.06);
+      color: rgba(255,255,255,0.7);
+      cursor: pointer;
+    }
+
+    /* Signature pad */
+    .signature-wrap {
+      position: relative;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.95);
+      overflow: hidden;
+    }
+    .signature-canvas {
+      display: block;
+      width: 100%;
+      height: 160px;
+      cursor: crosshair;
+      touch-action: none;
+    }
+    .signature-clear-btn {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      background: rgba(13,27,42,0.08);
+      border: 1px solid rgba(13,27,42,0.15);
+      border-radius: 6px;
+      padding: 4px 12px;
+      font-size: 0.78rem;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      color: var(--text-light);
+      transition: background 0.2s;
+    }
+    .signature-clear-btn:hover { background: rgba(13,27,42,0.15); }
+
+    .btn-submit-gold {
+      width: 100%;
+      padding: 15px;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+      margin-top: 8px;
+    }
+    .btn-submit-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    .success-banner {
+      display: none;
+      margin-top: 14px;
+      padding: 14px 18px;
+      background: rgba(34,197,94,0.15);
+      border: 1px solid rgba(34,197,94,0.3);
+      border-radius: 10px;
+      color: #4ade80;
+      font-size: 0.92rem;
+    }
+    .error-banner {
+      display: none;
+      margin-top: 14px;
+      padding: 14px 18px;
+      background: rgba(239,68,68,0.15);
+      border: 1px solid rgba(239,68,68,0.3);
+      border-radius: 10px;
+      color: #f87171;
+      font-size: 0.92rem;
+    }
+
+    /* Benefits column */
+    .tutor-benefits { padding-top: 12px; }
+    .tutor-benefits h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--white);
+      margin-bottom: 1.4rem;
+    }
+    .benefit-item { display: flex; gap: 16px; margin-bottom: 24px; }
+    .benefit-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: rgba(200,169,110,0.15);
+      border: 1px solid rgba(200,169,110,0.3);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .benefit-text h4 { color: var(--white); font-size: 0.97rem; font-weight: 600; margin-bottom: 4px; }
+    .benefit-text p { color: rgba(255,255,255,0.6); font-size: 0.88rem; }
+
+    /* Multi-select */
+    .multi-select { position: relative; width: 100%; }
+    .multi-select-trigger {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 14px;
+      border: 1.5px solid rgba(255,255,255,0.2);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.08);
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.7);
+      transition: border-color 0.2s;
+    }
+    .multi-select.open .multi-select-trigger { border-color: var(--gold); }
+    .multi-select-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0; right: 0;
+      background: var(--navy-mid);
+      border: 1.5px solid rgba(200,169,110,0.3);
+      border-radius: var(--radius);
+      z-index: 50;
+      max-height: 220px;
+      overflow-y: auto;
+      padding: 6px 0;
+    }
+    .multi-select.open .multi-select-dropdown { display: block; }
+    .multi-select-option {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 14px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.82);
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .multi-select-option:hover { background: rgba(200,169,110,0.12); }
+    .multi-select-option input[type="checkbox"] { accent-color: var(--gold); width: 15px; height: 15px; }
+
+    /* Footer */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.65);
+      padding: 60px 5% 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 48px;
+      max-width: 1200px;
+      margin: 0 auto 48px;
+    }
+    .footer-brand h2 { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.4rem; margin-bottom: 0.8rem; }
+    .footer-brand h2 span { color: var(--gold); }
+    .footer-brand p { font-size: 0.88rem; line-height: 1.7; max-width: 260px; }
+    .footer-col h4 { color: var(--white); font-size: 0.87rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .footer-col a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-contact-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px; font-size: 0.88rem; }
+    .footer-contact-item span:first-child { color: var(--gold); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      max-width: 1200px; margin: 0 auto; font-size: 0.82rem;
+    }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    .footer-bottom-links a:hover { color: var(--gold); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .tutor-layout { grid-template-columns: 1fr; gap: 40px; }
+      .tutor-form-card { padding: 24px 18px; }
+      .tutor-form-section { padding: 16px 14px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-bottom-links { justify-content: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Qualified<span> Teacher</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#how-it-works">How it Works</a></li>
+      <li><a href="index.html#subjects">Subjects</a></li>
+      <li><a href="our-story.html">Our Story</a></li>
+      <li><a href="join-our-teachers.html" style="color:var(--gold);">Become a Tutor</a></li>
+      <li><a href="index.html#find-tutor" class="nav-cta">Find a Tutor</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-label">Join the Team</div>
+      <h1>Teach With <em>Purpose</em></h1>
+      <p>We're looking for passionate, qualified teachers to join our exclusive tutoring platform. If you hold a PGCE with QTS and love helping students thrive, we'd love to hear from you.</p>
+    </div>
+  </div>
+
+  <!-- FORM SECTION -->
+  <section class="form-section">
+    <div class="container">
+      <div class="tutor-layout">
+        <div class="tutor-form-card">
+          <h3 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1.5rem;margin-bottom:0.4rem;">Teacher Application</h3>
+          <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;margin-bottom:2rem;">We review every application personally. Only qualified, experienced teachers are accepted.</p>
+
+          <!-- SECTION 1: PERSONAL INFORMATION -->
+          <div class="tutor-form-section">
+            <div class="tutor-form-section-title">Personal Information</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name *</label>
+                <input type="text" placeholder="First name" />
+              </div>
+              <div class="form-group">
+                <label>Last Name *</label>
+                <input type="text" placeholder="Last name" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" placeholder="you@email.com" />
+            </div>
+            <div class="form-group">
+              <label>Phone / WhatsApp *</label>
+              <div class="phone-input-wrap">
+                <select id="tutor-country-code" class="country-code-select">
+                  <option value="+971">🇦🇪 +971</option>
+                  <option value="+44">🇬🇧 +44</option>
+                  <option value="+1">🇺🇸 +1</option>
+                  <option value="+93">🇦🇫 +93</option>
+                  <option value="+355">🇦🇱 +355</option>
+                  <option value="+213">🇩🇿 +213</option>
+                  <option value="+376">🇦🇩 +376</option>
+                  <option value="+244">🇦🇴 +244</option>
+                  <option value="+54">🇦🇷 +54</option>
+                  <option value="+374">🇦🇲 +374</option>
+                  <option value="+61">🇦🇺 +61</option>
+                  <option value="+43">🇦🇹 +43</option>
+                  <option value="+994">🇦🇿 +994</option>
+                  <option value="+973">🇧🇭 +973</option>
+                  <option value="+880">🇧🇩 +880</option>
+                  <option value="+32">🇧🇪 +32</option>
+                  <option value="+501">🇧🇿 +501</option>
+                  <option value="+229">🇧🇯 +229</option>
+                  <option value="+975">🇧🇹 +975</option>
+                  <option value="+591">🇧🇴 +591</option>
+                  <option value="+387">🇧🇦 +387</option>
+                  <option value="+267">🇧🇼 +267</option>
+                  <option value="+55">🇧🇷 +55</option>
+                  <option value="+673">🇧🇳 +673</option>
+                  <option value="+359">🇧🇬 +359</option>
+                  <option value="+226">🇧🇫 +226</option>
+                  <option value="+257">🇧🇮 +257</option>
+                  <option value="+855">🇰🇭 +855</option>
+                  <option value="+237">🇨🇲 +237</option>
+                  <option value="+1">🇨🇦 +1</option>
+                  <option value="+238">🇨🇻 +238</option>
+                  <option value="+236">🇨🇫 +236</option>
+                  <option value="+235">🇹🇩 +235</option>
+                  <option value="+56">🇨🇱 +56</option>
+                  <option value="+86">🇨🇳 +86</option>
+                  <option value="+57">🇨🇴 +57</option>
+                  <option value="+269">🇰🇲 +269</option>
+                  <option value="+242">🇨🇬 +242</option>
+                  <option value="+506">🇨🇷 +506</option>
+                  <option value="+385">🇭🇷 +385</option>
+                  <option value="+53">🇨🇺 +53</option>
+                  <option value="+357">🇨🇾 +357</option>
+                  <option value="+420">🇨🇿 +420</option>
+                  <option value="+45">🇩🇰 +45</option>
+                  <option value="+253">🇩🇯 +253</option>
+                  <option value="+1-767">🇩🇲 +1-767</option>
+                  <option value="+1-809">🇩🇴 +1-809</option>
+                  <option value="+593">🇪🇨 +593</option>
+                  <option value="+20">🇪🇬 +20</option>
+                  <option value="+503">🇸🇻 +503</option>
+                  <option value="+240">🇬🇶 +240</option>
+                  <option value="+291">🇪🇷 +291</option>
+                  <option value="+372">🇪🇪 +372</option>
+                  <option value="+268">🇸🇿 +268</option>
+                  <option value="+251">🇪🇹 +251</option>
+                  <option value="+679">🇫🇯 +679</option>
+                  <option value="+358">🇫🇮 +358</option>
+                  <option value="+33">🇫🇷 +33</option>
+                  <option value="+241">🇬🇦 +241</option>
+                  <option value="+220">🇬🇲 +220</option>
+                  <option value="+995">🇬🇪 +995</option>
+                  <option value="+49">🇩🇪 +49</option>
+                  <option value="+233">🇬🇭 +233</option>
+                  <option value="+30">🇬🇷 +30</option>
+                  <option value="+1-473">🇬🇩 +1-473</option>
+                  <option value="+502">🇬🇹 +502</option>
+                  <option value="+224">🇬🇳 +224</option>
+                  <option value="+245">🇬🇼 +245</option>
+                  <option value="+592">🇬🇾 +592</option>
+                  <option value="+509">🇭🇹 +509</option>
+                  <option value="+504">🇭🇳 +504</option>
+                  <option value="+36">🇭🇺 +36</option>
+                  <option value="+354">🇮🇸 +354</option>
+                  <option value="+91">🇮🇳 +91</option>
+                  <option value="+62">🇮🇩 +62</option>
+                  <option value="+98">🇮🇷 +98</option>
+                  <option value="+964">🇮🇶 +964</option>
+                  <option value="+353">🇮🇪 +353</option>
+                  <option value="+972">🇮🇱 +972</option>
+                  <option value="+39">🇮🇹 +39</option>
+                  <option value="+1-876">🇯🇲 +1-876</option>
+                  <option value="+81">🇯🇵 +81</option>
+                  <option value="+962">🇯🇴 +962</option>
+                  <option value="+7">🇰🇿 +7</option>
+                  <option value="+254">🇰🇪 +254</option>
+                  <option value="+686">🇰🇮 +686</option>
+                  <option value="+850">🇰🇵 +850</option>
+                  <option value="+82">🇰🇷 +82</option>
+                  <option value="+965">🇰🇼 +965</option>
+                  <option value="+996">🇰🇬 +996</option>
+                  <option value="+856">🇱🇦 +856</option>
+                  <option value="+371">🇱🇻 +371</option>
+                  <option value="+961">🇱🇧 +961</option>
+                  <option value="+266">🇱🇸 +266</option>
+                  <option value="+231">🇱🇷 +231</option>
+                  <option value="+218">🇱🇾 +218</option>
+                  <option value="+423">🇱🇮 +423</option>
+                  <option value="+370">🇱🇹 +370</option>
+                  <option value="+352">🇱🇺 +352</option>
+                  <option value="+261">🇲🇬 +261</option>
+                  <option value="+265">🇲🇼 +265</option>
+                  <option value="+60">🇲🇾 +60</option>
+                  <option value="+960">🇲🇻 +960</option>
+                  <option value="+223">🇲🇱 +223</option>
+                  <option value="+356">🇲🇹 +356</option>
+                  <option value="+692">🇲🇭 +692</option>
+                  <option value="+222">🇲🇷 +222</option>
+                  <option value="+230">🇲🇺 +230</option>
+                  <option value="+52">🇲🇽 +52</option>
+                  <option value="+691">🇫🇲 +691</option>
+                  <option value="+373">🇲🇩 +373</option>
+                  <option value="+377">🇲🇨 +377</option>
+                  <option value="+976">🇲🇳 +976</option>
+                  <option value="+382">🇲🇪 +382</option>
+                  <option value="+212">🇲🇦 +212</option>
+                  <option value="+258">🇲🇿 +258</option>
+                  <option value="+95">🇲🇲 +95</option>
+                  <option value="+264">🇳🇦 +264</option>
+                  <option value="+674">🇳🇷 +674</option>
+                  <option value="+977">🇳🇵 +977</option>
+                  <option value="+31">🇳🇱 +31</option>
+                  <option value="+64">🇳🇿 +64</option>
+                  <option value="+505">🇳🇮 +505</option>
+                  <option value="+227">🇳🇪 +227</option>
+                  <option value="+234">🇳🇬 +234</option>
+                  <option value="+389">🇲🇰 +389</option>
+                  <option value="+47">🇳🇴 +47</option>
+                  <option value="+968">🇴🇲 +968</option>
+                  <option value="+92">🇵🇰 +92</option>
+                  <option value="+680">🇵🇼 +680</option>
+                  <option value="+970">🇵🇸 +970</option>
+                  <option value="+507">🇵🇦 +507</option>
+                  <option value="+675">🇵🇬 +675</option>
+                  <option value="+595">🇵🇾 +595</option>
+                  <option value="+51">🇵🇪 +51</option>
+                  <option value="+63">🇵🇭 +63</option>
+                  <option value="+48">🇵🇱 +48</option>
+                  <option value="+351">🇵🇹 +351</option>
+                  <option value="+974">🇶🇦 +974</option>
+                  <option value="+40">🇷🇴 +40</option>
+                  <option value="+7">🇷🇺 +7</option>
+                  <option value="+250">🇷🇼 +250</option>
+                  <option value="+1-869">🇰🇳 +1-869</option>
+                  <option value="+1-758">🇱🇨 +1-758</option>
+                  <option value="+1-784">🇻🇨 +1-784</option>
+                  <option value="+685">🇼🇸 +685</option>
+                  <option value="+378">🇸🇲 +378</option>
+                  <option value="+239">🇸🇹 +239</option>
+                  <option value="+966">🇸🇦 +966</option>
+                  <option value="+221">🇸🇳 +221</option>
+                  <option value="+381">🇷🇸 +381</option>
+                  <option value="+248">🇸🇨 +248</option>
+                  <option value="+232">🇸🇱 +232</option>
+                  <option value="+65">🇸🇬 +65</option>
+                  <option value="+421">🇸🇰 +421</option>
+                  <option value="+386">🇸🇮 +386</option>
+                  <option value="+677">🇸🇧 +677</option>
+                  <option value="+252">🇸🇴 +252</option>
+                  <option value="+27">🇿🇦 +27</option>
+                  <option value="+211">🇸🇸 +211</option>
+                  <option value="+34">🇪🇸 +34</option>
+                  <option value="+94">🇱🇰 +94</option>
+                  <option value="+249">🇸🇩 +249</option>
+                  <option value="+597">🇸🇷 +597</option>
+                  <option value="+46">🇸🇪 +46</option>
+                  <option value="+41">🇨🇭 +41</option>
+                  <option value="+963">🇸🇾 +963</option>
+                  <option value="+886">🇹🇼 +886</option>
+                  <option value="+992">🇹🇯 +992</option>
+                  <option value="+255">🇹🇿 +255</option>
+                  <option value="+66">🇹🇭 +66</option>
+                  <option value="+670">🇹🇱 +670</option>
+                  <option value="+228">🇹🇬 +228</option>
+                  <option value="+676">🇹🇴 +676</option>
+                  <option value="+1-868">🇹🇹 +1-868</option>
+                  <option value="+216">🇹🇳 +216</option>
+                  <option value="+90">🇹🇷 +90</option>
+                  <option value="+993">🇹🇲 +993</option>
+                  <option value="+688">🇹🇻 +688</option>
+                  <option value="+256">🇺🇬 +256</option>
+                  <option value="+380">🇺🇦 +380</option>
+                  <option value="+598">🇺🇾 +598</option>
+                  <option value="+998">🇺🇿 +998</option>
+                  <option value="+678">🇻🇺 +678</option>
+                  <option value="+379">🇻🇦 +379</option>
+                  <option value="+58">🇻🇪 +58</option>
+                  <option value="+84">🇻🇳 +84</option>
+                  <option value="+967">🇾🇪 +967</option>
+                  <option value="+260">🇿🇲 +260</option>
+                  <option value="+263">🇿🇼 +263</option>
+                </select>
+                <input type="tel" id="tutor-phone-number" placeholder="50 123 4567" class="phone-number-input" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Location in the UAE</label>
+                <input type="text" placeholder="e.g. Dubai Marina, Abu Dhabi" />
+              </div>
+              <div class="form-group">
+                <label>Nationality</label>
+                <input type="text" placeholder="e.g. British, Indian" />
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 2: PROFESSIONAL DETAILS -->
+          <div class="tutor-form-section">
+            <div class="tutor-form-section-title">Professional Details</div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Years of Qualified Teaching Experience</label>
+                <input type="number" min="0" max="50" placeholder="e.g. 5" style="padding: 18px 16px; font-size: 1.1rem;" />
+              </div>
+              <div class="form-group">
+                <label>Years Teaching in the UAE</label>
+                <input type="number" min="0" max="50" placeholder="e.g. 2" style="padding: 18px 16px; font-size: 1.1rem;" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Please describe any tutoring experience you have</label>
+              <textarea placeholder="Tell us about your tutoring background, any private students, tutoring agencies, etc."></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Do you hold a PGCE with QTS? *</label>
+                <select id="tutor-pgce-qts">
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div class="form-group" id="pgce-type-group" style="display:none;">
+                <label>What type of PGCE do you hold?</label>
+                <select id="tutor-pgce-type">
+                  <option value="">Select...</option>
+                  <option>Early Years</option>
+                  <option>Primary</option>
+                  <option>Secondary</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Which year groups do you prefer to tutor?</label>
+              <div class="multi-select" id="tutor-yeargroup-select">
+                <div class="multi-select-trigger" onclick="toggleMultiSelect('tutor-yeargroup-select')">
+                  <span class="multi-select-placeholder">Select year group(s)...</span>
+                  <span class="multi-select-arrow">▾</span>
+                </div>
+                <div class="multi-select-dropdown">
+                  <label class="multi-select-option"><input type="checkbox" value="Early Years (FS1–FS2)"> Early Years (FS1–FS2)</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Primary (Year 1–6)"> Primary (Year 1–6)</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Secondary (Year 7–11)"> Secondary (Year 7–11)</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Sixth Form / A-Level / IB"> Sixth Form / A-Level / IB</label>
+                  <label class="multi-select-option"><input type="checkbox" value="University Level"> University Level</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>What type of sessions can you offer?</label>
+                <select>
+                  <option value="">Select...</option>
+                  <option>Face to Face</option>
+                  <option>Online</option>
+                  <option>Both</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Do you agree to a free trial session? *</label>
+                <select>
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Primary subjects you are qualified to teach</label>
+              <div class="multi-select" id="tutor-primary-subjects">
+                <div class="multi-select-trigger" onclick="toggleMultiSelect('tutor-primary-subjects')">
+                  <span class="multi-select-placeholder">Select subject(s)...</span>
+                  <span class="multi-select-arrow">▾</span>
+                </div>
+                <div class="multi-select-dropdown">
+                  <label class="multi-select-option"><input type="checkbox" value="Arabic"> Arabic</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Swimming"> Swimming</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Maths"> Maths</label>
+                  <label class="multi-select-option"><input type="checkbox" value="French"> French</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Reading"> Reading</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Piano"> Piano</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Social Studies"> Social Studies</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Phonics"> Phonics</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Spanish"> Spanish</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Science"> Science</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Writing"> Writing</label>
+                  <label class="multi-select-option"><input type="checkbox" value="None"> None</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Secondary subjects you are qualified to teach</label>
+              <div class="multi-select" id="tutor-secondary-subjects">
+                <div class="multi-select-trigger" onclick="toggleMultiSelect('tutor-secondary-subjects')">
+                  <span class="multi-select-placeholder">Select subject(s)...</span>
+                  <span class="multi-select-arrow">▾</span>
+                </div>
+                <div class="multi-select-dropdown">
+                  <label class="multi-select-option"><input type="checkbox" value="Maths"> Maths</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Science"> Science</label>
+                  <label class="multi-select-option"><input type="checkbox" value="English"> English</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Social Studies"> Social Studies</label>
+                  <label class="multi-select-option"><input type="checkbox" value="French"> French</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Arabic"> Arabic</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Spanish"> Spanish</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Business"> Business</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Psychology"> Psychology</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Geography"> Geography</label>
+                  <label class="multi-select-option"><input type="checkbox" value="None"> None</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Curriculums you have experience teaching</label>
+              <div class="multi-select" id="tutor-curriculum-select">
+                <div class="multi-select-trigger" onclick="toggleMultiSelect('tutor-curriculum-select')">
+                  <span class="multi-select-placeholder">Select curriculum(s)...</span>
+                  <span class="multi-select-arrow">▾</span>
+                </div>
+                <div class="multi-select-dropdown">
+                  <label class="multi-select-option"><input type="checkbox" value="Canadian Curriculum"> Canadian Curriculum</label>
+                  <label class="multi-select-option"><input type="checkbox" value="British Curriculum"> British Curriculum</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Indian Curriculum"> Indian Curriculum</label>
+                  <label class="multi-select-option"><input type="checkbox" value="American Curriculum"> American Curriculum</label>
+                  <label class="multi-select-option"><input type="checkbox" value="IB Curriculum"> IB Curriculum</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Other"> Other</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="tutor-form-section-title" style="margin-top:1.5rem;">Document Uploads</div>
+            <div class="form-group">
+              <label>Upload your CV</label>
+              <input type="file" accept=".pdf,.doc,.docx" class="file-upload-input" />
+            </div>
+            <div class="form-group">
+              <label>Upload your PGCE</label>
+              <input type="file" accept=".pdf,.doc,.docx,.jpg,.png" class="file-upload-input" />
+            </div>
+            <div class="form-group">
+              <label>Upload your QTS / BEd Degree</label>
+              <input type="file" accept=".pdf,.doc,.docx,.jpg,.png" class="file-upload-input" />
+            </div>
+          </div>
+
+          <!-- SECTION 3: ABOUT YOU -->
+          <div class="tutor-form-section">
+            <div class="tutor-form-section-title">About You</div>
+
+            <div class="form-group">
+              <label>Give us a glimpse into how you teach and support your learners.</label>
+              <textarea id="tutor-teaching-style" rows="7" placeholder="Think of this as your chance to make a great first impression! This will be displayed on your tutor profile for parents to read, so the more effort you put in here, the better your chances of securing bookings."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>What are you passionate about outside of teaching that could positively influence your students?</label>
+              <textarea id="tutor-passions" rows="10" placeholder="Share something that makes you uniquely you — perhaps you speak multiple languages, coached a sports team, played an instrument to a high level, launched a business, led a passion project, or have a hobby or interest that students would find inspiring. Parents love knowing their child is learning from someone with a rich and varied life experience."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Do you have any criminal convictions in the UAE or internationally? *</label>
+              <select id="tutor-convictions">
+                <option value="">Select...</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Signature *</label>
+              <p style="color:rgba(255,255,255,0.55);font-size:0.82rem;margin-bottom:10px;">Please sign below to confirm that all information provided is accurate and truthful, and that you agree to the Qualified Teachers terms and conditions.</p>
+              <div class="signature-wrap">
+                <canvas id="tutor-signature-canvas" class="signature-canvas"></canvas>
+                <button type="button" class="signature-clear-btn" onclick="clearSignature()">Clear</button>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-submit-gold" id="tutor-submit-btn" onclick="submitTutorForm()">Submit Application →</button>
+          <div class="success-banner" id="tutor-success">🎉 Application received! We'll review it and be in touch soon.</div>
+          <div class="error-banner" id="tutor-error">❌ Something went wrong. Please try again or contact us directly.</div>
+        </div>
+
+        <div class="tutor-benefits">
+          <h3>Why Tutor With Us?</h3>
+          <div class="benefit-item">
+            <div class="benefit-icon">🎯</div>
+            <div class="benefit-text">
+              <h4>Pre-Matched Students</h4>
+              <p>We handle all the matching — you get students whose needs align perfectly with your expertise.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">💰</div>
+            <div class="benefit-text">
+              <h4>Competitive Rates</h4>
+              <p>Earn what you deserve. We ensure fair, transparent pay for all Qualified Teachers on our platform.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">🗓️</div>
+            <div class="benefit-text">
+              <h4>Flexible Scheduling</h4>
+              <p>Work around your life. Set your own availability and take on as many or as few students as you like.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">🌐</div>
+            <div class="benefit-text">
+              <h4>Online & In-Person</h4>
+              <p>Choose how you work — both online and in-person tutoring opportunities are available.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">🤝</div>
+            <div class="benefit-text">
+              <h4>Ongoing Support</h4>
+              <p>You're never alone. Our team is always on hand to support you and your students.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h2>Qualified<span> Teacher</span></h2>
+        <p>Connecting students with exceptional, certified teachers for personalised, results-driven tutoring.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html#how-it-works">How it Works</a></li>
+          <li><a href="index.html#subjects">Subjects</a></li>
+          <li><a href="index.html#testimonials">Testimonials</a></li>
+          <li><a href="our-story.html">Our Story</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="index.html#find-tutor">Find a Tutor</a></li>
+          <li><a href="join-our-teachers.html">Become a Tutor</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item"><span>📱</span><span>UAE: +971 50 693 6855</span></div>
+        <div class="footer-contact-item"><span>📱</span><span>UK: +44 752 693 8504</span></div>
+        <div class="footer-contact-item"><span>✉️</span><span>info@qualifiedteacher.com</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Qualified Teacher. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── MULTI-SELECT ──
+    function toggleMultiSelect(id) {
+      const el = document.getElementById(id);
+      const isOpen = el.classList.contains('open');
+      document.querySelectorAll('.multi-select.open').forEach(ms => ms.classList.remove('open'));
+      if (!isOpen) el.classList.add('open');
+    }
+
+    function getMultiSelectValues(id) {
+      const el = document.getElementById(id);
+      return Array.from(el.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
+    }
+
+    function updateMultiSelectLabel(id) {
+      const el = document.getElementById(id);
+      const selected = getMultiSelectValues(id);
+      const placeholder = el.querySelector('.multi-select-placeholder');
+      if (selected.length === 0) {
+        placeholder.textContent = id.includes('yeargroup') ? 'Select year group(s)...' :
+          id.includes('curriculum') ? 'Select curriculum(s)...' : 'Select subject(s)...';
+        placeholder.style.color = '';
+      } else {
+        placeholder.textContent = selected.join(', ');
+        placeholder.style.color = 'inherit';
+      }
+    }
+
+    function resetMultiSelect(id) {
+      const el = document.getElementById(id);
+      el.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+      updateMultiSelectLabel(id);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.multi-select').forEach(ms => {
+        ms.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+          cb.addEventListener('change', () => updateMultiSelectLabel(ms.id));
+        });
+      });
+      const pgceQts = document.getElementById('tutor-pgce-qts');
+      if (pgceQts) {
+        pgceQts.addEventListener('change', () => {
+          document.getElementById('pgce-type-group').style.display =
+            pgceQts.value === 'Yes' ? 'block' : 'none';
+        });
+      }
+      document.addEventListener('click', e => {
+        if (!e.target.closest('.multi-select')) {
+          document.querySelectorAll('.multi-select.open').forEach(ms => ms.classList.remove('open'));
+        }
+      });
+    });
+
+    // ── SIGNATURE PAD ──
+    let signatureDrawing = false;
+    let signatureCanvas, signatureCtx;
+
+    function initSignaturePad() {
+      signatureCanvas = document.getElementById('tutor-signature-canvas');
+      if (!signatureCanvas) return;
+      signatureCtx = signatureCanvas.getContext('2d');
+
+      function resizeCanvas() {
+        const rect = signatureCanvas.getBoundingClientRect();
+        signatureCanvas.width = rect.width;
+        signatureCanvas.height = rect.height;
+        signatureCtx.strokeStyle = '#1a2e45';
+        signatureCtx.lineWidth = 2;
+        signatureCtx.lineCap = 'round';
+        signatureCtx.lineJoin = 'round';
+      }
+      resizeCanvas();
+
+      function getPos(e) {
+        const rect = signatureCanvas.getBoundingClientRect();
+        const src = e.touches ? e.touches[0] : e;
+        return { x: src.clientX - rect.left, y: src.clientY - rect.top };
+      }
+
+      signatureCanvas.addEventListener('mousedown', e => {
+        signatureDrawing = true;
+        const p = getPos(e);
+        signatureCtx.beginPath();
+        signatureCtx.moveTo(p.x, p.y);
+      });
+      signatureCanvas.addEventListener('mousemove', e => {
+        if (!signatureDrawing) return;
+        const p = getPos(e);
+        signatureCtx.lineTo(p.x, p.y);
+        signatureCtx.stroke();
+      });
+      signatureCanvas.addEventListener('mouseup', () => signatureDrawing = false);
+      signatureCanvas.addEventListener('mouseleave', () => signatureDrawing = false);
+      signatureCanvas.addEventListener('touchstart', e => {
+        e.preventDefault();
+        signatureDrawing = true;
+        const p = getPos(e);
+        signatureCtx.beginPath();
+        signatureCtx.moveTo(p.x, p.y);
+      }, { passive: false });
+      signatureCanvas.addEventListener('touchmove', e => {
+        e.preventDefault();
+        if (!signatureDrawing) return;
+        const p = getPos(e);
+        signatureCtx.lineTo(p.x, p.y);
+        signatureCtx.stroke();
+      }, { passive: false });
+      signatureCanvas.addEventListener('touchend', () => signatureDrawing = false);
+    }
+
+    function clearSignature() {
+      if (signatureCtx) signatureCtx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
+    }
+
+    function isSignatureEmpty() {
+      if (!signatureCanvas) return true;
+      const pixels = signatureCtx.getImageData(0, 0, signatureCanvas.width, signatureCanvas.height).data;
+      return !pixels.some(p => p !== 0);
+    }
+
+    function getSignatureDataURL() {
+      return signatureCanvas ? signatureCanvas.toDataURL('image/png') : '';
+    }
+
+    document.addEventListener('DOMContentLoaded', initSignaturePad);
+
+    const SHEET_URL = 'https://script.google.com/macros/s/AKfycbytU8DARcxE5Qk7TjJG9Mwo1iOq_8DJ93CCWnkRrr0pcxgw3I9hHh1AtcVuqfbuCk1L/exec';
+
+    async function submitTutorForm() {
+      const btn = document.getElementById('tutor-submit-btn');
+      const successEl = document.getElementById('tutor-success');
+      const errorEl = document.getElementById('tutor-error');
+      const card = btn.closest('.tutor-form-card');
+
+      const firstName = card.querySelector('input[placeholder="First name"]').value.trim();
+      const lastName = card.querySelector('input[placeholder="Last name"]').value.trim();
+      const email = card.querySelector('input[type="email"]').value.trim();
+      const countryCode = document.getElementById('tutor-country-code').value;
+      const phoneNumber = document.getElementById('tutor-phone-number').value.trim();
+      const phone = phoneNumber ? countryCode + ' ' + phoneNumber : '';
+      const uaeLocation = card.querySelector('input[placeholder="e.g. Dubai Marina, Abu Dhabi"]').value.trim();
+      const nationality = card.querySelector('input[placeholder="e.g. British, Indian"]').value.trim();
+      const yearsQualified = card.querySelector('input[placeholder="e.g. 5"]').value.trim();
+      const yearsUAE = card.querySelector('input[placeholder="e.g. 2"]').value.trim();
+      const tutoringExp = card.querySelector('textarea').value.trim();
+      const pgceQts = document.getElementById('tutor-pgce-qts').value;
+      const pgceType = document.getElementById('tutor-pgce-type').value;
+      const yearGroups = getMultiSelectValues('tutor-yeargroup-select').join(', ');
+      const sessionType = card.querySelectorAll('select')[3].value;
+      const freeTrial = card.querySelectorAll('select')[4].value;
+      const primarySubjects = getMultiSelectValues('tutor-primary-subjects').join(', ');
+      const secondarySubjects = getMultiSelectValues('tutor-secondary-subjects').join(', ');
+      const curriculums = getMultiSelectValues('tutor-curriculum-select').join(', ');
+      const teachingStyle = document.getElementById('tutor-teaching-style').value.trim();
+      const passions = document.getElementById('tutor-passions').value.trim();
+      const convictions = document.getElementById('tutor-convictions').value;
+      const signatureData = getSignatureDataURL();
+
+      if (!firstName || !lastName || !email || !phone) {
+        alert('Please fill in all required fields (marked with *).');
+        return;
+      }
+      if (isSignatureEmpty()) {
+        alert('Please sign the declaration before submitting.');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      successEl.style.display = 'none';
+      errorEl.style.display = 'none';
+
+      try {
+        await fetch(SHEET_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            formType: 'tutor',
+            firstName, lastName, email, phone, uaeLocation, nationality,
+            yearsQualifiedTeaching: yearsQualified, yearsTeachingUAE: yearsUAE,
+            tutoringExperience: tutoringExp, pgceWithQTS: pgceQts, pgceType,
+            yearGroups, sessionType, freeTrial,
+            primarySubjects, secondarySubjects, curriculums,
+            teachingStyle, passions, criminalConvictions: convictions,
+            signatureProvided: 'Yes'
+          })
+        });
+        successEl.style.display = 'block';
+        card.querySelectorAll('input[type="text"], input[type="email"], input[type="number"], textarea, select').forEach(el => el.value = '');
+        document.getElementById('tutor-phone-number').value = '';
+        document.getElementById('tutor-country-code').selectedIndex = 0;
+        document.getElementById('pgce-type-group').style.display = 'none';
+        ['tutor-yeargroup-select','tutor-primary-subjects','tutor-secondary-subjects','tutor-curriculum-select'].forEach(resetMultiSelect);
+        clearSignature();
+        setTimeout(() => { successEl.style.display = 'none'; }, 6000);
+      } catch (err) {
+        errorEl.style.display = 'block';
+        setTimeout(() => { errorEl.style.display = 'none'; }, 6000);
+      }
+
+      btn.disabled = false;
+      btn.textContent = 'Submit Application →';
+    }
+  </script>
+</body>
+</html>

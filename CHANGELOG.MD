@@ -1,5 +1,9 @@
-01/04/26
+03/04/26
+v1.2.0
+    moved teacher form & our story into seperate pages
 
+
+01/04/26
 v1.1.3
     futher scaling isses fixed
 
