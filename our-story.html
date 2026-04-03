@@ -53,6 +53,66 @@
     }
     .nav-cta:hover { background: var(--gold-light); }
 
+    /* ── HAMBURGER & DRAWER ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column; justify-content: center; gap: 5px;
+      width: 40px; height: 40px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+      z-index: 200; flex-shrink: 0;
+    }
+    .nav-hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--white); border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s, width 0.3s;
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .drawer-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.5); z-index: 149;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .drawer-overlay.visible { opacity: 1; }
+
+    .nav-drawer {
+      position: fixed; top: 0; left: 0; bottom: 0;
+      width: 280px; background: var(--navy); z-index: 150;
+      transform: translateX(-100%);
+      transition: transform 0.32s cubic-bezier(0.4,0,0.2,1);
+      display: flex; flex-direction: column; overflow-y: auto;
+    }
+    .nav-drawer.open { transform: translateX(0); }
+    .drawer-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; height: 72px;
+      border-bottom: 1px solid rgba(255,255,255,0.08); flex-shrink: 0;
+    }
+    .drawer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--white); text-decoration: none; }
+    .drawer-logo span { color: var(--gold); }
+    .drawer-close { background: none; border: none; color: rgba(255,255,255,0.6); font-size: 1.5rem; cursor: pointer; padding: 4px 8px; line-height: 1; transition: color 0.2s; }
+    .drawer-close:hover { color: var(--gold); }
+    .drawer-nav { flex: 1; padding: 24px 0; display: flex; flex-direction: column; }
+    .drawer-nav a {
+      display: block; padding: 14px 28px; color: rgba(255,255,255,0.78);
+      text-decoration: none; font-size: 1rem; font-weight: 500;
+      transition: background 0.2s, color 0.2s; border-left: 3px solid transparent;
+    }
+    .drawer-nav a:hover, .drawer-nav a.active { background: rgba(255,255,255,0.05); color: var(--gold); border-left-color: var(--gold); }
+    .drawer-icon { font-size: 1.05rem; width: 22px; text-align: center; flex-shrink: 0; }
+    .drawer-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 12px 28px; }
+    .drawer-cta {
+      margin: 8px 28px 24px; display: block; text-align: center;
+      background: var(--gold); color: var(--navy) !important;
+      padding: 13px 20px; border-radius: 50px;
+      font-weight: 600; font-size: 0.97rem; text-decoration: none;
+      transition: background 0.2s, transform 0.2s; border-left: none !important;
+    }
+    .drawer-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+
     /* PAGE HERO */
     .page-hero {
       background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1e3a5f 100%);
@@ -212,6 +272,7 @@
     /* Responsive */
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
       .story-grid, .story-grid.reverse { grid-template-columns: 1fr; gap: 40px; direction: ltr; }
       .story-badge { left: 50%; transform: translateX(-50%); bottom: -20px; white-space: nowrap; }
       .values-grid { grid-template-columns: 1fr; }
@@ -225,8 +286,32 @@
 
 <body>
 
+  <!-- DRAWER OVERLAY -->
+  <div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+
+  <!-- NAV DRAWER -->
+  <div class="nav-drawer" id="nav-drawer">
+    <div class="drawer-header">
+      <a href="index.html" class="drawer-logo">Qualified<span> Teacher</span></a>
+      <button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">✕</button>
+    </div>
+    <nav class="drawer-nav">
+      <a href="index.html#how-it-works">How it Works</a>
+      <a href="index.html#subjects">Subjects</a>
+      <a href="index.html#testimonials">Testimonials</a>
+      <div class="drawer-divider"></div>
+      <a href="our-story.html" class="active">Our Story</a>
+      <a href="join-our-teachers.html">Become a Tutor</a>
+      <div class="drawer-divider"></div>
+      <a href="index.html#find-tutor" class="drawer-cta">Find a Tutor →</a>
+    </nav>
+  </div>
+
   <!-- NAV -->
   <nav>
+    <button class="nav-hamburger" id="nav-hamburger" onclick="toggleDrawer()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
     <a href="index.html" class="nav-logo">Qualified<span> Teacher</span></a>
     <ul class="nav-links">
       <li><a href="index.html#how-it-works">How it Works</a></li>
@@ -382,6 +467,40 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    function toggleDrawer() {
+      const drawer = document.getElementById('nav-drawer');
+      const overlay = document.getElementById('drawer-overlay');
+      const hamburger = document.getElementById('nav-hamburger');
+      const isOpen = drawer.classList.contains('open');
+      if (isOpen) {
+        closeDrawer();
+      } else {
+        drawer.classList.add('open');
+        overlay.style.display = 'block';
+        hamburger.classList.add('open');
+        requestAnimationFrame(() => overlay.classList.add('visible'));
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeDrawer() {
+      const drawer = document.getElementById('nav-drawer');
+      const overlay = document.getElementById('drawer-overlay');
+      const hamburger = document.getElementById('nav-hamburger');
+      drawer.classList.remove('open');
+      overlay.classList.remove('visible');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+      setTimeout(() => { overlay.style.display = 'none'; }, 300);
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+    document.querySelectorAll('.drawer-nav a').forEach(link => {
+      link.addEventListener('click', () => closeDrawer());
+    });
+  </script>
 
 </body>
 </html>

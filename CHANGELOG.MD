@@ -1,4 +1,8 @@
 03/04/26
+v1.2.1
+    optimised homepage for mobile view
+    added hamburger icon on mobile view 
+
 v1.2.0
     moved teacher form & our story into seperate pages
 
