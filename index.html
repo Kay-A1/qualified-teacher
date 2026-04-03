@@ -118,6 +118,7 @@
       z-index: 200;
       flex-shrink: 0;
     }
+
     .nav-hamburger span {
       display: block;
       width: 24px;
@@ -127,36 +128,54 @@
       transition: transform 0.3s, opacity 0.3s, width 0.3s;
       transform-origin: center;
     }
-    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
-    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-hamburger.open span:nth-child(2) {
+      opacity: 0;
+      width: 0;
+    }
+
+    .nav-hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
 
     /* ── DRAWER OVERLAY ── */
     .drawer-overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0, 0, 0, 0.5);
       z-index: 149;
       opacity: 0;
       transition: opacity 0.3s;
     }
-    .drawer-overlay.visible { opacity: 1; }
+
+    .drawer-overlay.visible {
+      opacity: 1;
+    }
 
     /* ── DRAWER ── */
     .nav-drawer {
       position: fixed;
-      top: 0; left: 0; bottom: 0;
+      top: 0;
+      left: 0;
+      bottom: 0;
       width: 280px;
       background: var(--navy);
       z-index: 150;
       transform: translateX(-100%);
-      transition: transform 0.32s cubic-bezier(0.4,0,0.2,1);
+      transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
       flex-direction: column;
       overflow-y: auto;
     }
-    .nav-drawer.open { transform: translateX(0); }
+
+    .nav-drawer.open {
+      transform: translateX(0);
+    }
 
     .drawer-header {
       display: flex;
@@ -164,53 +183,95 @@
       justify-content: space-between;
       padding: 0 24px;
       height: 72px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       flex-shrink: 0;
     }
+
     .drawer-logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.2rem; font-weight: 700;
-      color: var(--white); text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
     }
-    .drawer-logo span { color: var(--gold); }
+
+    .drawer-logo span {
+      color: var(--gold);
+    }
+
     .drawer-close {
-      background: none; border: none;
-      color: rgba(255,255,255,0.6);
-      font-size: 1.5rem; cursor: pointer;
-      padding: 4px 8px; line-height: 1;
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      line-height: 1;
       transition: color 0.2s;
     }
-    .drawer-close:hover { color: var(--gold); }
 
-    .drawer-nav { flex: 1; padding: 24px 0; display: flex; flex-direction: column; }
+    .drawer-close:hover {
+      color: var(--gold);
+    }
+
+    .drawer-nav {
+      flex: 1;
+      padding: 24px 0;
+      display: flex;
+      flex-direction: column;
+    }
+
     .drawer-nav a {
       display: block;
       padding: 14px 28px;
-      color: rgba(255,255,255,0.78);
+      color: rgba(255, 255, 255, 0.78);
       text-decoration: none;
-      font-size: 1rem; font-weight: 500;
+      font-size: 1rem;
+      font-weight: 500;
       letter-spacing: 0.02em;
       transition: background 0.2s, color 0.2s;
       border-left: 3px solid transparent;
     }
-    .drawer-nav a:hover, .drawer-nav a.active {
-      background: rgba(255,255,255,0.05);
+
+    .drawer-nav a:hover,
+    .drawer-nav a.active {
+      background: rgba(255, 255, 255, 0.05);
       color: var(--gold);
       border-left-color: var(--gold);
     }
-    .drawer-icon { font-size: 1.05rem; width: 22px; text-align: center; flex-shrink: 0; }
-    .drawer-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 12px 28px; }
+
+    .drawer-icon {
+      font-size: 1.05rem;
+      width: 22px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .drawer-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin: 12px 28px;
+    }
+
     .drawer-cta {
       margin: 8px 28px 24px;
-      display: block; text-align: center;
-      background: var(--gold); color: var(--navy) !important;
-      padding: 13px 20px; border-radius: 50px;
-      font-weight: 600; font-size: 0.97rem;
+      display: block;
+      text-align: center;
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 13px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.97rem;
       text-decoration: none;
       transition: background 0.2s, transform 0.2s;
       border-left: none !important;
     }
-    .drawer-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+
+    .drawer-cta:hover {
+      background: var(--gold-light) !important;
+      transform: translateY(-1px);
+    }
 
     /* ── HERO ── */
     .hero {
@@ -1045,7 +1106,7 @@
       z-index: 50;
       max-height: 220px;
       overflow-y: auto;
-      box-shadow: 0 8px 24px rgba(13,27,42,0.12);
+      box-shadow: 0 8px 24px rgba(13, 27, 42, 0.12);
     }
 
     .multi-select.open .multi-select-dropdown {
@@ -1083,8 +1144,8 @@
 
     /* Dark variant for tutor form */
     .multi-select-dark .multi-select-trigger {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.2);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
       color: var(--white);
     }
 
@@ -1093,11 +1154,11 @@
     }
 
     .multi-select-dark .multi-select-placeholder {
-      color: rgba(255,255,255,0.4);
+      color: rgba(255, 255, 255, 0.4);
     }
 
     .multi-select-dark .multi-select-arrow {
-      color: rgba(255,255,255,0.6);
+      color: rgba(255, 255, 255, 0.6);
     }
 
     .multi-select-dark .multi-select-dropdown {
@@ -1106,11 +1167,11 @@
     }
 
     .multi-select-dark .multi-select-option {
-      color: rgba(255,255,255,0.85);
+      color: rgba(255, 255, 255, 0.85);
     }
 
     .multi-select-dark .multi-select-option:hover {
-      background: rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.08);
     }
 
 
@@ -1118,9 +1179,9 @@
     /* ── SIGNATURE PAD ── */
     .signature-wrap {
       position: relative;
-      border: 1.5px solid rgba(255,255,255,0.2);
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
       border-radius: var(--radius);
-      background: rgba(255,255,255,0.95);
+      background: rgba(255, 255, 255, 0.95);
       overflow: hidden;
     }
 
@@ -1136,7 +1197,7 @@
       position: absolute;
       top: 10px;
       right: 10px;
-      background: rgba(200,169,110,0.9);
+      background: rgba(200, 169, 110, 0.9);
       color: var(--navy);
       border: none;
       padding: 5px 12px;
@@ -1153,7 +1214,7 @@
 
     /* ── TUTOR FORM SECTIONS ── */
     .tutor-form-section {
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 14px;
       padding: 24px;
       margin-bottom: 24px;
@@ -1166,7 +1227,7 @@
       font-weight: 600;
       margin-bottom: 1.4rem;
       padding-bottom: 0.6rem;
-      border-bottom: 1px solid rgba(200,169,110,0.3);
+      border-bottom: 1px solid rgba(200, 169, 110, 0.3);
       letter-spacing: 0.02em;
     }
 
@@ -1174,7 +1235,7 @@
     .file-upload-input {
       padding: 10px 14px !important;
       cursor: pointer;
-      color: rgba(255,255,255,0.7) !important;
+      color: rgba(255, 255, 255, 0.7) !important;
     }
 
     .file-upload-input::-webkit-file-upload-button {
@@ -1276,7 +1337,8 @@
     /* ── RESPONSIVE ── */
 
     /* Prevent any horizontal overflow on mobile */
-    html, body {
+    html,
+    body {
       overflow-x: hidden;
       max-width: 100%;
     }
@@ -1522,6 +1584,7 @@
         font-size: 0.7rem;
       }
     }
+
     /* ── TEASER SECTION GRIDS ── */
     .teaser-grid {
       display: grid;
@@ -1531,8 +1594,8 @@
     }
 
     .teaser-info-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 20px;
       padding: 44px 40px;
       backdrop-filter: blur(8px);
@@ -1550,13 +1613,13 @@
       display: flex;
       align-items: flex-start;
       gap: 14px;
-      color: rgba(255,255,255,0.85);
+      color: rgba(255, 255, 255, 0.85);
       font-size: 0.97rem;
     }
 
     .teaser-check {
-      background: rgba(200,169,110,0.2);
-      border: 1px solid rgba(200,169,110,0.4);
+      background: rgba(200, 169, 110, 0.2);
+      border: 1px solid rgba(200, 169, 110, 0.4);
     }
 
     .about-img-placeholder {
@@ -1584,10 +1647,11 @@
       font-weight: 500;
       font-size: 0.95rem;
       text-decoration: none;
-      border: 1.5px solid rgba(13,27,42,0.35);
+      border: 1.5px solid rgba(13, 27, 42, 0.35);
       transition: all 0.25s;
       display: inline-block;
     }
+
     .btn-outline-dark:hover {
       border-color: var(--navy);
       color: var(--gold);
@@ -1639,7 +1703,6 @@
     <nav class="drawer-nav">
       <a href="index.html#how-it-works">How it Works</a>
       <a href="index.html#subjects">Subjects</a>
-      <a href="index.html#testimonials">Testimonials</a>
       <div class="drawer-divider"></div>
       <a href="our-story.html">Our Story</a>
       <a href="join-our-teachers.html">Become a Tutor</a>
@@ -1712,22 +1775,27 @@
         <div class="step-card">
           <div class="step-num">1</div>
           <h3>Get Started</h3>
-          <p>Reach out via WhatsApp, phone, or our simple online form. Just tell us your child's needs and we'll take it from there.</p>
+          <p>Reach out via WhatsApp, phone, or our simple online form. Just tell us your child's needs and we'll take it
+            from there.</p>
         </div>
         <div class="step-card">
           <div class="step-num">2</div>
           <h3>We Handpick Your Teacher</h3>
-          <p>Our team carefully reviews your requirements and selects the most suitable qualified teacher — not just by subject, but by teaching style and personality fit.</p>
+          <p>Our team carefully reviews your requirements and selects the most suitable qualified teacher — not just by
+            subject, but by teaching style and personality fit.</p>
         </div>
         <div class="step-card">
           <div class="step-num">3</div>
           <h3>Book Your Free Trial</h3>
-          <p>Your teacher will arrange your first session at a time that suits you. The trial includes a friendly introduction and a short diagnostic assessment. Your tutor will then provide personalised feedback and a tailored action plan, while giving you the opportunity to ensure they are the right fit for your child.</p>
+          <p>Your teacher will arrange your first session at a time that suits you. The trial includes a friendly
+            introduction and a short diagnostic assessment. Your tutor will then provide personalised feedback and a
+            tailored action plan, while giving you the opportunity to ensure they are the right fit for your child.</p>
         </div>
         <div class="step-card">
           <div class="step-num">4</div>
           <h3>Choose Your Plan & Get Started</h3>
-          <p>Select from a range of lesson packages to suit your child's goals and schedule. Once confirmed, your teacher will set up a consistent weekly timetable so learning stays on track.</p>
+          <p>Select from a range of lesson packages to suit your child's goals and schedule. Once confirmed, your
+            teacher will set up a consistent weekly timetable so learning stays on track.</p>
         </div>
       </div>
     </div>
@@ -2028,7 +2096,8 @@
                   <label class="multi-select-option"><input type="checkbox" value="Phonics"> Phonics</label>
                   <label class="multi-select-option"><input type="checkbox" value="History"> History</label>
                   <label class="multi-select-option"><input type="checkbox" value="Business"> Business</label>
-                  <label class="multi-select-option"><input type="checkbox" value="Computer Science"> Computer Science</label>
+                  <label class="multi-select-option"><input type="checkbox" value="Computer Science"> Computer
+                    Science</label>
                   <label class="multi-select-option"><input type="checkbox" value="Geography"> Geography</label>
                   <label class="multi-select-option"><input type="checkbox" value="Economics"> Economics</label>
                   <label class="multi-select-option"><input type="checkbox" value="French"> French</label>
@@ -2083,7 +2152,9 @@
         <div>
           <div class="section-label">Join the Team</div>
           <h2 class="section-title" style="color:var(--white);">Join Our Teachers</h2>
-          <p style="color:rgba(255,255,255,0.72);font-size:1.05rem;margin-bottom:2rem;line-height:1.75;">Want to be part of an exclusive team of educators who make a real impact? We personally match you with students who need your expertise — no cold calling, no chasing leads.</p>
+          <p style="color:rgba(255,255,255,0.72);font-size:1.05rem;margin-bottom:2rem;line-height:1.75;">Want to be part
+            of an exclusive team of educators who make a real impact? We personally match you with students who need
+            your expertise — no cold calling, no chasing leads.</p>
           <ul class="teaser-features">
             <li>
               <div class="check-icon teaser-check">✓</div>
@@ -2106,11 +2177,18 @@
         </div>
         <div class="teaser-info-card">
           <div style="font-size:3rem;margin-bottom:1.2rem;">🎓</div>
-          <h3 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1.4rem;margin-bottom:1rem;">Who We're Looking For</h3>
-          <p style="color:rgba(255,255,255,0.68);font-size:0.95rem;line-height:1.75;margin-bottom:1.5rem;">We only work with teachers who hold a recognised teaching qualification (PGCE with QTS or equivalent). If you have the credentials and the passion, we'd love to hear from you.</p>
-          <div style="border-top:1px solid rgba(255,255,255,0.1);padding-top:1.4rem;display:flex;align-items:center;gap:16px;">
-            <div style="width:48px;height:48px;background:rgba(200,169,110,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;">📋</div>
-            <p style="color:rgba(255,255,255,0.6);font-size:0.87rem;line-height:1.6;">Applications are reviewed personally. You'll hear back within 48 hours of submitting.</p>
+          <h3 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1.4rem;margin-bottom:1rem;">Who
+            We're Looking For</h3>
+          <p style="color:rgba(255,255,255,0.68);font-size:0.95rem;line-height:1.75;margin-bottom:1.5rem;">We only work
+            with teachers who hold a recognised teaching qualification (PGCE with QTS or equivalent). If you have the
+            credentials and the passion, we'd love to hear from you.</p>
+          <div
+            style="border-top:1px solid rgba(255,255,255,0.1);padding-top:1.4rem;display:flex;align-items:center;gap:16px;">
+            <div
+              style="width:48px;height:48px;background:rgba(200,169,110,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;">
+              📋</div>
+            <p style="color:rgba(255,255,255,0.6);font-size:0.87rem;line-height:1.6;">Applications are reviewed
+              personally. You'll hear back within 48 hours of submitting.</p>
           </div>
         </div>
       </div>
@@ -2182,8 +2260,10 @@
         <div class="about-text">
           <div class="section-label">Who We Are</div>
           <h2 class="section-title">Our Story</h2>
-          <p>The faces behind Qualified Teacher are two highly passionate teachers with a drive for helping students succeed. Between us, we have over 20 years of teaching experience.</p>
-          <p>We believe that all lessons should be tailored to each individual student's needs — no two learners are the same, and our approach reflects that.</p>
+          <p>The faces behind Qualified Teacher are two highly passionate teachers with a drive for helping students
+            succeed. Between us, we have over 20 years of teaching experience.</p>
+          <p>We believe that all lessons should be tailored to each individual student's needs — no two learners are the
+            same, and our approach reflects that.</p>
           <div class="about-btn-row">
             <a href="our-story.html" class="btn-primary">Read Our Full Story →</a>
             <a href="#find-tutor" class="btn-outline-dark">Find a Tutor</a>
@@ -2497,7 +2577,7 @@
         document.getElementById('tutor-phone-number').value = '';
         document.getElementById('tutor-country-code').selectedIndex = 0;
         document.getElementById('pgce-type-group').style.display = 'none';
-        ['tutor-yeargroup-select','tutor-primary-subjects','tutor-secondary-subjects','tutor-curriculum-select'].forEach(resetMultiSelect);
+        ['tutor-yeargroup-select', 'tutor-primary-subjects', 'tutor-secondary-subjects', 'tutor-curriculum-select'].forEach(resetMultiSelect);
         clearSignature();
         setTimeout(() => { successEl.style.display = 'none'; }, 6000);
       } catch (err) {

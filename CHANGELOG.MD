@@ -1,4 +1,7 @@
 03/04/26
+v1.2.2
+    removed testimonials in mobile navbar
+
 v1.2.1
     optimised homepage for mobile view
     added hamburger icon on mobile view 
